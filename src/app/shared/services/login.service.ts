@@ -52,11 +52,9 @@ export class LoginService {
             .then(user =>
               this.confirmationService.sendConfirmationMail(user.email)
               .then( res => {
-                console.log(res)
               })
             )
             .catch(_ => {
-                console.log(_)
             })
     }
 
@@ -70,12 +68,11 @@ export class LoginService {
            applicationUrl
          }
         return this.usersService.signupProvider(newUser)
-            .then(user =>
-              console.log(user)
+            .then(user => {
               //this.confirmationService.sendConfirmationMail(user.email)
+            }            
             )
             .catch(_ => {
-                console.error('error')
             })
     }
 

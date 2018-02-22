@@ -27,10 +27,8 @@ export class ConfirmationService {
     }
 
     sendConfirmationMail(email){
-      console.log(email)
     return this.confirmationMailService.create({email})
     .then(_ => {
-      console.log('from conf',_)
     })
     }
 

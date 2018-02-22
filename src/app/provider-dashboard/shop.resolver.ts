@@ -10,7 +10,6 @@ export class ShopResolver implements Resolve<any> {
               private shopService: ShopService) {}
 
   resolve(route: ActivatedRouteSnapshot): Observable<any> {
-    console.log('from shop resolver:', localStorage.getItem('userId'))
     return this.shopService.getShopByProvider(localStorage.getItem('userId'))
     .then(response=>{ return response[0]});
   }

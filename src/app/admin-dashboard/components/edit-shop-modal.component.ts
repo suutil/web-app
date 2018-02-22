@@ -19,7 +19,6 @@ password: string
   }
 
 ngOnInit(){
-  console.log(this.shop)
 }
 
 activate(){

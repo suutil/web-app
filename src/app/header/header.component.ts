@@ -39,7 +39,6 @@ export class HeaderComponent implements OnInit {
     private route: ActivatedRoute) {
      router.events.subscribe(event => {
        if (event instanceof NavigationEnd) {
-         console.log('DATas',event.url, this.userRol)
           this.currentUrl = event.url
 }
   });

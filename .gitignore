@@ -1,0 +1,8 @@
+node_modules
+dist
+aot
+coverage
+
+.idea
+
+npm-debug.log

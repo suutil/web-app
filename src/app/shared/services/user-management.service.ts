@@ -126,8 +126,4 @@ export class UserManagementService {
     updateUser(user: User) {
         return this.usersService.update(user._id, user)
     }
-
-    patchUser(){
-      console.log('patch user')
-    }
 }

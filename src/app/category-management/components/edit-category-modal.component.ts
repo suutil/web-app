@@ -15,7 +15,6 @@ export class EditCategoryModal {
   }
 
 ngOnInit(){
-  console.log('from modal', this.category)
 }
 
 editTagName() {

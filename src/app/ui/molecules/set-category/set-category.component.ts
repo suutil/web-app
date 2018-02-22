@@ -17,8 +17,8 @@ export class SetCategoryComponent {
 
 
   setTag(){
-    this.shopService.tagShop('59fc8a3c1058c240c28009ee', "avec les doigts")
-    .then(r=>{console.log(r)})
+    this.shopService.tagShop('a', "a")
+    .then(r=>{})
   }
 
 }

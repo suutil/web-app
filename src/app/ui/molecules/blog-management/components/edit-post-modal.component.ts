@@ -15,14 +15,12 @@ export class EditPostModal {
   }
 
 ngOnInit(){
-  console.log('from modal', this.post)
 }
 
 editPost() {
     this.contentService.editPost(this.post)
     .then(post=> {
       this.toastManager.success('Post actualizado con éxito')
-      console.log(post)
     })
 }
 

@@ -17,11 +17,9 @@ export class ConfirmMailComponent {
     private toastManager: ToastsManager) { }
 
   ngOnInit() {
-    console.log("héé")
     this.router.routerState.root.queryParams
     .subscribe(queryParams =>{
       this.token = queryParams['token']
-      console.log('yoo',this.token)
       this.confirmationService.activateUser(this.token)
     }
     )

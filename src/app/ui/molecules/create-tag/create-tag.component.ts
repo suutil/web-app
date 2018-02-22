@@ -23,7 +23,6 @@ export class CreateTagComponent {
     this.shopService.getActiveTags()
     .then(tags => {
       this.tags= tags
-      console.log(tags)
     })
   }
 

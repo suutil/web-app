@@ -23,7 +23,6 @@ export class BlogManagementComponent {
     }
 
     ngOnInit() {
-        console.log(this.posts)
     }
 
     onSubmit() {
@@ -51,7 +50,6 @@ export class BlogManagementComponent {
             let obj = this.posts.find((post, i) => {
                 if (post._id === postId) {
                     this.posts[i] = result
-                    console.log(this.posts)
                     return true; // stop searching
                 }
             })
@@ -64,7 +62,6 @@ export class BlogManagementComponent {
                 let obj = this.posts.find((post, i) => {
                     if (post._id === postId) {
                         this.posts[i] = result
-                        console.log(this.posts)
                         return true; // stop searching
                     }
                 })

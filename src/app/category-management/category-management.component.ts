@@ -29,7 +29,6 @@ export class CategoryManagementComponent {
       this.shopService.getAllCategories()
       .then(categories=>{
         this.categoryDatas = this.shopService.buildCategoryDatas(categories)
-        console.log(this.categoryDatas)
       }
       )
     }

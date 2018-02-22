@@ -31,7 +31,6 @@ valueChanged(newVal) {
 }
 
 toggleCategoryMenu(){
-  console.log(this.showCategoryMenu)
   this.showCategoryMenu = !this.showCategoryMenu
 }
 

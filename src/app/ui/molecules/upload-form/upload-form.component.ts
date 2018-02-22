@@ -36,7 +36,6 @@ export class UploadFormComponent {
     }
 
     ngOnInit(){
-      console.log(this.isUploaded)
       this.resizeOptions.resize.maxHeight = this.maxHeight
       this.resizeOptions.resize.maxWidth = this.maxWidth
     }

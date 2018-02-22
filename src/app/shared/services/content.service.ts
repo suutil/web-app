@@ -31,7 +31,6 @@ export class ContentService {
     }
 
     getLastActivePosts(number){
-      console.log('get active posts')
       let params = {
           query: {
             $limit: number,

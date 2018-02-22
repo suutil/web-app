@@ -15,7 +15,6 @@ export class UploadPictureService {
 
 
     uploadPicture(image, type, shopId, collection){
-      console.log(type)
      return  this.uploadPictureService.update(shopId, { image: true, data: image, type: type, collection: collection })
     }
 

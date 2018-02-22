@@ -30,7 +30,6 @@ export class AuthenticationGuard implements CanActivate {
         return this._checkAccess(next.data['accessList'])
       }
       else {
-        console.log('state',state.url)
         //this.router.navigate([''])
         return false;
       }

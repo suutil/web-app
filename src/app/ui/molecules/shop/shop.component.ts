@@ -45,7 +45,6 @@ nextId: string
       })
   this.route.data.subscribe(data => {
     this.shop = data['shopData']
-    console.log(this.shop)
     this.tags = data['tags']
     this.categories = data['categories']
     this.shopService.getActiveShopIds()
@@ -60,7 +59,6 @@ nextId: string
     addToFavorites(shop){
       return this.shopService.addToFavorites(shop._id)
       .then((updatedUser)=>{
-        console.log(updatedUser)
         this.user = updatedUser;
       })
     }
@@ -68,7 +66,6 @@ nextId: string
     removeFromFavorites(shop){
       return this.shopService.removeFromFavorites(shop._id)
       .then((updatedUser)=>{
-        console.log(updatedUser)
         this.user = updatedUser;
       })
     }

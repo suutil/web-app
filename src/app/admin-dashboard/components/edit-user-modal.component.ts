@@ -17,7 +17,6 @@ password: string
   }
 
 ngOnInit(){
-  console.log(this.user)
 }
 
 setPassword(){

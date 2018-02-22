@@ -105,12 +105,10 @@ shops: any
     this.userManagementService.getDataResources()
     .then(datas=> {
       this.data = datas
-      console.log(this.data)
     })
     this.shopService.getShops()
     .then((shops)=>{
       this.shops = shops
-      console.log(this.shops)
     })
   }
 

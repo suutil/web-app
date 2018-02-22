@@ -25,7 +25,6 @@ shop: any
 
   ngOnInit() {
       this.route.data.subscribe(data => {
-        console.log(data)
           this.user = data['user'];
           this.categories = data['categories']
           this.tags = data['tags']

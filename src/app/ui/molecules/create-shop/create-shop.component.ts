@@ -59,7 +59,7 @@ export class CreateShopComponent {
 
     createShop() {
         this.shopService.createShop(this.user._id)
-            .then(result => { console.log(result) })
+            .then(result => { })
     }
 
     saveAccountInfo() {

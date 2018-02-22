@@ -35,7 +35,6 @@ login: boolean
      ngOnInit(){
        this.route.data.subscribe(data => {
            this.shops = data['shops']
-           console.log(this.shops)
        })
        this.authenticationService.isLogged(login => {
          this.login = login
@@ -58,10 +57,8 @@ login: boolean
 
      removeFromFavorites(shop){
       let index = this.shops.indexOf(shop);
-      console.log(shop)
        return this.shopService.removeFromFavorites(shop._id)
        .then((updatedUser)=>{
-         console.log(updatedUser)
          this.user = updatedUser;
        })
      }

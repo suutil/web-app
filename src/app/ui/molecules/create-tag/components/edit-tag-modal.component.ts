@@ -15,14 +15,12 @@ export class EditTagModal {
   }
 
 ngOnInit(){
-  console.log('from modal', this.tag)
 }
 
 editTagName() {
   this.shopService.changeTagName(this.tag._id, this.tag.tagName)
     .then(tag=> {
         this.toastManager.success('Tag cambiado con exito')
-        console.log(tag)
     })
     .catch(_ => {
       this.toastManager.error('error')

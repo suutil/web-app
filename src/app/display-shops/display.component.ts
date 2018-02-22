@@ -53,20 +53,16 @@ login: boolean
      }
 
      addToFavorites(shop){
-       console.log(shop)
        return this.shopService.addToFavorites(shop._id)
        .then((updatedUser)=>{
-         console.log(updatedUser)
          this.user = updatedUser;
        })
      }
 
      removeFromFavorites(shop){
       let index = this.shops.indexOf(shop);
-      console.log(shop)
        return this.shopService.removeFromFavorites(shop._id)
        .then((updatedUser)=>{
-         console.log(updatedUser)
          this.user = updatedUser;
        })
      }

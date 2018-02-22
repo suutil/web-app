@@ -21,7 +21,6 @@ showShopFilter = true
 ngOnInit(){
    this.route.data.subscribe(data => {
      this.posts = data['posts']
-     console.log(this.posts)
    })
 }
 

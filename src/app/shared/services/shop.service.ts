@@ -247,7 +247,7 @@ export class ShopService {
                     }
                 })
             })
-            .then(result => { console.log(result) })
+            .then(result => {})
     }
 
     disableCategory(categoryId) {
@@ -322,7 +322,6 @@ export class ShopService {
         let from = new Date();
         var to = new Date();
         from.setDate(from.getDate() - days);
-        console.log(from)
         let params = {
             query: {
                 createdAt:
