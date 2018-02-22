@@ -1,0 +1,11 @@
+<div class="ui-progress-bar d-flex justify-content-start align-items-center">
+    <div class="label-left pr-4" style="min-width: 70px;">
+        <label style="margin-bottom: 0;">{{labelLeft}}</label>
+    </div>
+    <div class="progress-bar-container mr-3" [style.width.%]="size === 'big' ? percent * 0.75 :  percent * 0.6">
+        <div class="progress-bar {{classId}}" role="progressbar" [style.width.%]="100"></div>
+    </div>
+    <div class="label-right">
+        <label style="margin-bottom: 0;" class="price-20">{{labelRight | number}}</label>
+    </div>
+</div>

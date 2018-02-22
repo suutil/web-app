@@ -1,0 +1,66 @@
+.separator{
+  border-top: solid black 1px;
+}
+
+shop-filter {
+  background-color: white;
+  .filter-banner {
+    height: 20em;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    h2 {
+      font-weight: normal;
+      line-height: 1em;
+    }
+  }
+  .responsive-menu a {
+    text-transform: uppercase;
+  }
+  .responsive-menu a:hover {
+    text-decoration: underline !important;
+  }
+  input {
+    font-size: 0.9vw;
+  }
+}
+
+
+@media(min-width: 1300px) {
+.bottom-row {
+  position: relative;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.top-row {
+  padding: 0;
+}
+}
+
+@media (min-width: 767px) and (max-width: 1450px) {
+  shop-filter {
+  .filter-banner {
+    height: 15em;
+  }
+  input {
+    font-size: 0.9vw;
+  }
+}
+}
+
+  @media(max-width: 768px) {
+    shop-filter {
+    .filter-banner {
+      height: 8em;
+    }
+    .card {
+      border: none;
+      border-radius: 0;
+    }
+    input {
+      font-size: 1.7vw;
+    }
+  }
+
+  }

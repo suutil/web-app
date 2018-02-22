@@ -1,0 +1,15 @@
+<div class="p-2">
+  <h1 *ngIf="!shop">Create shop</h1>
+
+  <div *ngIf="shop" class="d-flex flex-column">
+    <div class="d-flex flex-row justify-content-md-around justify-content-between">
+      <div class="d-flex flex-row pointer" [routerLink]="'/my-shop'"><<h4>VOLVER</h4></div>
+      <div class="d-none d-md-block"><h2>MI ESPACIO DE PROVEEDOR</h2></div>
+      <div></div>
+    </div>
+    <div class="d-flex flex-row justify-content-center mt-5">
+      <h5>Completa todos los campos. Los usuarios valoran la informacion detallada.</h5>
+    </div>
+  <create-shop  [shop]="shop"[categories]="categories" [tags]="tags" [user]="user" class="mx-O mx-xl-5"></create-shop>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+.dropdown-menu {
+    width: 30em;
+
+    a.dropdown-item {
+        //        color: $contamar-white;
+
+        &:hover {
+            //          background-color: $contamar-gray-1-left-menu;
+            //        color: $contamar-gray-left-menu-hover-item;
+            //      border-left: 3px solid $contamar-gray-left-menu-hover-item;
+        }
+        //  transition: color 0.25s linear;
+    }
+}
+
+a#dropdownHeaderPanel {
+    padding: 0;
+}
+/* Dropdown Button */
+/* The container <div> - needed to position the dropdown content */
+.category-container {
+    //overflow-x: auto !important;
+    .filter-dropdown {
+        position: relative;
+        display: inline-block;
+
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            opacity: 0.8;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            text-transform: uppercase;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            text-decoration: underline;
+        }
+    }
+    /* Show the dropdown menu on hover */
+    .filter-dropdown:hover .dropdown-content {
+        display: block;
+    }
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropbtn:hover {
+        text-decoration: underline;
+    }
+}
+
+.dropbtn {
+    text-transform: uppercase;
+    background-color: white;
+    padding: 16px;
+    //font-size: 16px;
+    border: none;
+    cursor: pointer;
+    a {
+      color: black;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="">
+    <div class="d-flex flex-column front-page">
+        <div class="d-flex flex-row flex-wrap justify-content-around">
+            <div *ngFor="let post of posts; let i = index">
+                <div *ngIf="i === 0" class="main-article d-flex flex-column justify-content-center mb-2" [style.background-image]="backgroundUrl(post._id,'blog-main-picture')">
+                    <div class="title w-100 d-inline-flex flex-column align-items-center justify-content-around" [routerLink]="'/magazine/'+post._id">
+                        <h2 class="main-title">{{post.title}}</h2>
+                        <h2 class="subtitle">{{post.subtitle}}</h2>
+                    </div>
+                </div>
+                <div *ngIf="i !== 0" class="small-article d-flex flex-column justify-content-center mb-2" [style.background-image]="backgroundUrl(post._id,'blog-main-picture')">
+                    <div class="title w-100 d-inline-flex flex-column align-items-center justify-content-around" [routerLink]="'/magazine/'+post._id">
+                        <h2 class="main-title">{{post.title}}</h2>
+                        <h2 class="subtitle">{{post.subtitle}}</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,230 @@
+<div class="mx-0 mx-md-3 p-0 p-xl-5">
+    <panel>
+        <div class="d-flex flex-column">
+            <div class="d-flex flex-row justify-content-between mt-3 p-3 flex-wrap">
+                <h3>DATOS DE TU CUENTA</h3>
+                <div>
+                    <p class="visibility-notice">Informacion de registro NO VISIBLE por los usuarios de tu espacio de proveedor</p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-6 col-sm-3">
+                    <div *ngIf="!shop.logo" class="w-100 empty-logo d-flex flex-column align-items-center justify-content-center" style="min-height:200px">
+                        <img class="h-25 w-25" src="assets/icons/camera.png">
+                        <h3>Logotipo</h3>
+                    </div>
+
+                    <div *ngIf="shop.logo" class="w-100 d-flex flex-column align-items-center justify-content-center" style="min-height:200px">
+                        <img class="h-100 w-100" src="https://suutil-images.s3.eu-central-1.amazonaws.com/{{shop._id}}.logo">
+                    </div>
+
+
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="d-flex flex-column px-0 px-md-5">
+                        <p class="bold-label mt-3 mt-md-0">Logotipo *</p>
+                        <p>Imagen que te representa en el listado de proveedores y en tu Espacio de Proveedor.</p>
+                        <upload-form [type]="'logo'" [maxHeight]="240" [maxWidth]="240" [isUploaded]="shop.logo || false" [id]="shop._id" [collection]="'shop'"></upload-form>
+                        <p class="bold-label mt-3">Etiquetas *</p>
+                        <p>Elige las #etiquetas que mejor te describen. Aparecerán en tu Espacio de Proveedor, y las 3 primeras juntos a tu logo en el listado de proveedores. <span (click)="toggleTagModal()" class="blue">Sugerencias</span></p>
+                        <div class="mb-1">
+                            <input class="p-1 p-lg-2" placeholder="{{shopTagsPlaceholder}}" name="tags" required (click)="toggleTagModal()">
+                        </div>
+
+                        <div class="category-modal tag-modal " [ngClass]="{'displayed' : showTagModal}">
+                            <div class="d-flex flex-row w-100 justify-content-end">
+                                <a class="align-self-end" (click)="toggleTagModal()"><span class="icon icon-cross-remove m-3"></span></a>
+                            </div>
+                            <div class="d-flex flex-row flex-wrap">
+                                <div class="tag-item" *ngFor="let tag of tags">
+                                    <div class="mx-4 mb-2">
+                                        <a *ngIf="shop.tags.indexOf(tag._id) === -1" class="main-category mb-3" (click)='tagShop(tag._id)'>#{{tag.tagName}}</a>
+                                        <a *ngIf="shop.tags.indexOf(tag._id) > -1" class="main-category mb-3" class="isSet" (click)='untagShop(tag._id)'>#{{tag.tagName}}</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="toggle-shade" [ngClass]="{'displayed' : showTagModal}" (click)="toggleTagModal()"></div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <form action="" (ngSubmit)="saveAccountInfo()" class="account-form">
+                        <div class="d-flex flex-column">
+                            <label for="shopName" class="align-self-start bold-label">Nombre de Empresa/Negocio/Marca*</label>
+                            <input name="shopName" ngModel required class="w-100 p-1 p-lg-2" [(ngModel)]="user.company">
+
+                            <label for="name" class="align-self-start bold-label mt-2">Nombre y Apellidos (persona de contacto)*</label>
+                            <div class="d-flex flex-row">
+                                <input name="firstName" ngModel required class="w-50 p-1 p-lg-2" [(ngModel)]="user.firstName" placeholder="Nombre">
+                                <input name="lastName" ngModel required class="w-50 p-1 p-lg-2" [(ngModel)]="user.lastName" placeholder="Apellidos">
+
+                            </div>
+
+                            <label for="email" class="align-self-start bold-label mt-2">Dirección de email*</label>
+
+                            <input name="email" ngModel required class="w-100 p-1 p-lg-2" [(ngModel)]="user.email">
+
+                            <!--<a class="align-self-start bold-label mt-2">Contraseña</a>-->
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <hr class="profile-separator">
+        <form class="" (ngSubmit)="onSubmit()" novalidate>
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-row flex-wrap justify-content-between mt-3 p-3">
+                    <h3>DATOS DE TU ESPACIO DE PROVEEDOR</h3>
+                    <div class="">
+                        <p class="visibility-notice">Informacion VISIBLE por los usuarios de tu espacio de proveedor</p>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="d-flex flex-column">
+                            <h4>DATOS *</h4>
+                            <label for="shopName" class="align-self-start">Nombre de la tienda</label>
+                            <input name="shopName" ngModel required class="col-sm-6 p-1 p-lg-2" [(ngModel)]="shop.shopName">
+                            <label for="shortDescription" class="align-self-start mt-2 mb-2">Descripción corta*</label>
+                            <input name="shortDescription" ngModel required class="col-sm-6 p-1 p-lg-2" [(ngModel)]="shop.shortDescription">
+                            <label for="category" class="align-self-start mt-2 mb-2">Categoría en la que te situas</label>
+                            <input placeholder="{{currentCategories}}" name="category" ngModel required class="col-sm-6 p-1 p-lg-2" (click)="toggleCategoryModal()">
+
+                            <div class="category-modal" [ngClass]="{'displayed' : showCategoryModal}">
+                                <div class="d-flex flex-row w-100 justify-content-end">
+                                    <a class="align-self-end" (click)="toggleCategoryModal()"><span class="icon icon-cross-remove m-3"></span></a>
+                                </div>
+                                <div class="d-flex flex-row flex-wrap">
+                                    <div *ngFor="let cat of categoryDatas">
+                                        <div class="category-modal-item p-4">
+                                            <a *ngIf="shop.categories.indexOf(cat._id) === -1" (click)='setShopCategory(cat._id)' class="main-category mb-3">{{cat.categoryName}}</a>
+                                            <a *ngIf="shop.categories.indexOf(cat._id) > -1" (click)='resetShopCategory(cat._id)' class="main-category mb-3 isSet">{{cat.categoryName}}</a>
+                                            <div *ngFor="let subcategory of cat.subCategories">
+                                                <a *ngIf="shop.categories.indexOf(subcategory._id) === -1" (click)='setShopSubcategory(cat._id,subcategory._id)' class="subcategory">{{subcategory.categoryName}}</a>
+                                                <a *ngIf="shop.categories.indexOf(subcategory._id) > -1" (click)='resetShopCategory(subcategory._id)' class="subcategory isSet">{{subcategory.categoryName}}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="toggle-shade" [ngClass]="{'displayed' : showCategoryModal}" (click)="toggleCategoryModal()"></div>
+                            <label for="country" class="align-self-start mt-2 mb-2">País de origen</label>
+                            <select class="col-sm-6" [(ngModel)]="shop.country" name="country">
+    <option *ngFor="let country of countries" [value]="country.code">{{country.spanishName}}</option>
+</select>
+
+
+                            <h4 class="mt-3">IMÁGENES</h4>
+
+                            <div class="row">
+                                <label for="banner" class="mt-2 mb-2 pl-3">Imagen 1 (.png o .jpg) de 490x230px</label>
+                                <upload-form [type]="'banner'" [maxHeight]="240" [maxWidth]="600" [image]="" class="col-sm-8" [isUploaded]="shop.banner" [userId]="user._id" [id]="shop._id" [collection]="'shop'"></upload-form>
+                            </div>
+
+                            <div class="row">
+                                <label for="picture1" class="mt-2 mb-2 pl-3">Imagen 2 (.png o .jpg) de 240x240px</label>
+                                <upload-form [type]="'picture1'" [maxHeight]="300" [maxWidth]="300" [image]="" class="col-sm-8" [isUploaded]="shop.picture1" [userId]="user._id" [id]="shop._id" [collection]="'shop'"></upload-form>
+                            </div>
+                            <div class="row">
+                                <label for="banner" class="mt-2 mb-2 pl-3">Imagen 3 (.png o .jpg) de 240x240px</label>
+                                <upload-form [type]="'picture2'" [maxHeight]="300" [maxWidth]="300" [image]="" class="col-sm-8" [isUploaded]="shop.picture2" [userId]="user._id" [id]="shop._id" [collection]="'shop'"></upload-form>
+                            </div>
+
+
+
+                            <h4 class="mt-3">LINKS A WEB Y REDES SOCIALES</h4>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="d-flex flex-column mr-2">
+                                        <div class="row mb-1">
+                                            <img class="m-1 rss-icon" src="assets/icons/web.png" alt="facebook">
+                                            <input class="col-9 col-offset-1 p-1 p-lg-2" name="webLink" ngModel required [(ngModel)]="shop.webLink" placeholder="{{shop.webLink || 'Pagina Web'}}">
+                                        </div>
+                                        <div class="row mb-1">
+                                            <img class="m-1 rss-icon" src="assets/icons/instagram.png" alt="instagram">
+                                            <input class="col-9 col-offset-1 p-1 p-lg-2" name="instagram" ngModel required [(ngModel)]="shop.instagram" placeholder="{{shop.instagram || 'Instagram link'}}">
+                                        </div>
+                                        <div class="row mb-1">
+                                            <img class="m-1 rss-icon" src="assets/icons/facebook.png" alt="facebook">
+                                            <input class="col-9 col-offset-1 p-1 p-lg-2" name="facebook" ngModel required [(ngModel)]="shop.facebook" placeholder="{{shop.facebook || 'Facebook link'}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="d-flex flex-column mr-2">
+                                        <div class="row mb-1">
+                                            <img class="m-1 rss-icon" src="assets/icons/pinterest.png" alt="pinterest">
+                                            <input class="col-9 col-offset-1 p-1 p-lg-2" name="pinterest" ngModel required [(ngModel)]="shop.pinterest" placeholder="{{shop.pinterest || 'Pinterest link'}}">
+                                        </div>
+                                        <div class="row mb-1">
+                                            <img class="m-1 rss-icon" src="assets/icons/linkedin.png" alt="facebook">
+                                            <input class="col-9 col-offset-1 p-1 p-lg-2" name="linkedin" ngModel required [(ngModel)]="shop.linkedin" placeholder="{{shop.linkedin || 'Linkedin link'}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                    <div class="col-sm-6">
+                        <h4 class="mt-3">DESCRIPCION</h4>
+                        <textarea class="w-100" [(ngModel)]="shop.description" name="name" rows="8" cols="80"></textarea>
+                        <h4>CONDICIONES</h4>
+                        <label for="payment" class="mt-2">Formas de pago*</label>
+                        <input name="payment" ngModel required class="w-100 p-1 p-lg-2" [(ngModel)]="shop.payment">
+                        <label for="shippingMethod" class="mt-2">Formas de envío*</label>
+                        <input name="shippingMethod" ngModel required class="w-100 p-1 p-lg-2" [(ngModel)]="shop.shippingMethod">
+                        <label for="paymentMethod" class="mt-2">Devoluciones y reembolso*</label>
+                        <input name="paymentMethod" ngModel required class="w-100 p-1 p-lg-2" [(ngModel)]="shop.paymentMethod">
+                        <label for="paymentMethod" class="mt-2">Condiciones de venta para profesionales</label>
+                        <input name="proConditions" ngModel required class="w-100 p-1 p-lg-2" [(ngModel)]="shop.proConditions">
+
+                        <h4 class="mt-5">CONTACTO</h4>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="row w-100 mb-2">
+                                    <img class="m-1 rss-icon" src="assets/icons/email.png" alt="mail">
+                                    <input class="col-9 col-offset-1 p-1 p-lg-2" name="contactMail" ngModel required [(ngModel)]="shop.contactMail" placeholder="{{shop.contactMail || 'Dirección de contacto'}}">
+                                </div>
+                                <div class="row w-100 mb-2">
+                                    <img class="m-1 rss-icon" src="assets/icons/address.png" alt="address">
+                                    <input class="col-9 col-xs-10 col-offset-1 p-1 p-lg-2" name="address" ngModel required [(ngModel)]="shop.address" placeholder="{{shop.address || 'Dirección completa'}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="row w-100 mb-2">
+                                    <img class="m-1 rss-icon" src="assets/icons/phone.png" alt="phone">
+                                    <input class="col-9 col-offset-1 p-1 p-lg-2" name="phone" ngModel required [(ngModel)]="shop.phone" placeholder="{{shop.phone || 'Teléfono'}}">
+                                </div>
+                                <div class="row w-100 mb-2">
+                                    <img class="m-1 rss-icon" src="assets/icons/time.png" alt="hours">
+                                    <input class="col-9 col-offset-1 p-1 p-lg-2" name="hours" ngModel required [(ngModel)]="shop.hours" placeholder="{{shop.hours || 'Horario'}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+                <button *ngIf="!isLoad" class="save-button pointer blue">Guardar</button>
+            </div>
+        </form>
+    </panel>
+</div>

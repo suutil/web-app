@@ -1,0 +1,11 @@
+<div class="d-flex flex-row w-100 justify-content-end">
+  <a class="align-self-end"(click)="activeModal.dismiss()"><span class="icon icon-cross-remove m-3"></span></a>
+</div>
+
+
+<div [ngClass]="{'modal-body': !modalEmpty }">
+    <div #dynamicComponentContainer></div>
+</div>
+<div class="d-flex flex-row w-100 justify-content-end">
+  <a class="align-self-start link m-3"(click)="activeModal.dismiss()">Cerrar</a>
+</div>

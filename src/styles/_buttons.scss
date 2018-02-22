@@ -1,0 +1,17 @@
+/*.btn-group {
+    .btn {
+        padding: 0.5rem 0rem;
+    }
+    .btn-group-selected {
+        background-color: $contamar-gray-1-left-menu;
+        font-weight: bold;
+        &:hover {
+            background-color: $contamar-gray-1-left-menu;
+            font-weight: bold;
+        }
+    }
+}*/
+
+.active-selector {
+  background-color: grey
+}

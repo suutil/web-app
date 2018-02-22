@@ -1,0 +1,230 @@
+p {
+  font-size: 0.9vw;
+}
+
+li, th, td, a, label {
+  font-size: 0.9vw;
+}
+
+.rss-icon {
+  height: 1.4vw;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size:  2.1vw;
+    font-weight: bold;
+    line-height: 32px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size:  1.4vw;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3vw;
+    font-weight: medium;
+    line-height: 19px;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1vw;
+    font-weight: medium;
+    line-height: 19px;
+}
+
+h5 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1vw;
+    font-weight: light;
+    line-height: 19px;
+}
+
+h6 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: regular;
+    line-height: 16px;
+    text-align: center;
+}
+
+label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+}
+
+a {
+  color: #333333;
+}
+
+a:hover {
+  color: #333333;
+}
+
+.label-medium {
+    font-size: 14px;
+}
+
+.label-small {
+    font-size: 12px;
+}
+
+.indication {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 19px;
+}
+
+.price-40 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 38px;
+    line-height: 40px;
+}
+
+.price-30 {
+    font-family: "Open Sans";
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.price-20 {
+    font-family: "Open Sans";
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.page-number-focus {
+    font-family: "Open Sans";
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 21px;
+    color: $suutil-blue;
+}
+
+.page-number {
+    font-family: "Open Sans";
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 21px;
+}
+
+.icon-notification-number {
+    font-family: "Open Sans";
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 17px;
+}
+
+.underline {
+  text-decoration: underline !important;
+}
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+.text-align-center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+
+@media (max-width: 599px){
+
+
+  h1 {
+      font-size:  4vw;
+
+  }
+
+  h2 {
+      font-size:  3.5vw;
+      line-height: 20px;
+  }
+
+  h3 {
+      font-size: 3.2vw;
+      line-height: 19px;
+  }
+
+  h4 {
+      font-size: 3vw;
+  }
+
+  h5 {
+      font-size: 2.8vw;
+  }
+
+  p  {
+    font-size: 2.7vw;
+  }
+
+  li, th, td, a, label {
+    font-size: 3vw;
+  }
+
+  .rss-icon {
+    height: 3.5vw;
+  }
+}
+
+
+
+@media (min-width: 600px) and (max-width: 1220px){
+
+
+/*  h1 {
+      font-size:  4vw;
+
+  }
+
+  h2 {
+      font-size:  3.5vw;
+      line-height: 20px;
+  }
+
+  h3 {
+      font-size: 3.2vw;
+      line-height: 19px;
+  }
+*/
+  h4 {
+      font-size: 1.7vw;
+  }
+/*
+  h5 {
+      font-size: 3vw;
+  }
+  */
+
+  p  {
+    font-size: 1.2vw;
+  }
+
+  li, th, td, a, label {
+    font-size: 1.4vw;
+  }
+
+  .rss-icon {
+    height: 2vw;
+  }
+
+}

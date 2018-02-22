@@ -1,0 +1,10 @@
+<div class="edit-tag medium-column d-flex flex-column align-items-center">
+  <h2>{{category.categoryName}}</h2>
+<hr class="w-100 p-3">
+<input name="categoryName" ngModel required  class="w-50 pl-2" [(ngModel)]="category.categoryName">
+<button (click)="editTagName()" class="btn w-50 mt-2">Guardar cambios</button>
+
+<hr class="w-100 p-3">
+<button *ngIf="category.enabled" (click)="disableCategory()" class="btn w-50 mt-2">Desactivar</button>
+<button *ngIf="!category.enabled" (click)="enableCategory()" class="btn w-50 mt-2">Activar</button>
+</div>

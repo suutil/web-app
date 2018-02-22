@@ -1,0 +1,7 @@
+EN EL MENU DE NAVEGACIÓN:
+
+EspañaPortugalFranciaItalia
+
+Otros...............................................................................PAISES ENTRE LOS QUE PUEDE ELEGIR EL PROVEEDOR PARA QUE APAREZCA EN SU FICHA:ESP - EspañaPRT - PortugalFRA - FranciaITA - ItaliaDNK - DinamarcaNLD – Países bajosDEU - AlemaniaNOR - NoruegaSWE - SueciaBEL - BélgicaGBR - Reino UnidoIRL – Irlanda  AUT - Austria CZE - República Checa POL - PoloniaRUS – RusiaTUR – TurquíaUSA - Estados Unidos AUS - Australia 
+
+OTRO - OTRO

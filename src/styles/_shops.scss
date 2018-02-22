@@ -1,0 +1,306 @@
+.logo {
+  height: 15em;
+  width: 15em;
+  background-size: cover;
+  //border: solid grey 1px;
+}
+
+.shop-title {
+  text-transform: uppercase;
+}
+
+
+.picture {
+  background-size: cover;
+  width: 49%;
+}
+.picture:after {
+content: "";
+display: block;
+padding-bottom: 100%;
+}
+
+.empty-shop {
+  .picture:after {
+    display: none;
+  }
+
+  .shop-description {
+    height: 20vw;
+  }
+}
+
+.shop-banner  {
+  background-size: cover;
+  height: 18vw;
+}
+
+.shops-container {
+  max-width: 91vw;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shop-item {
+  margin: 0.5vw;
+  background-color: #e6f3f7;
+  background-size: cover;
+  height: 14vw;
+  width: 14vw;
+  border: solid grey 1px;
+  .shop-info{
+    min-height: 3vw;
+    background-color: white;
+    opacity: 0.9;
+    img {
+      height: 1.2vw;
+    }
+    p {
+      line-height: normal;
+    }
+    .shop-name {
+      text-transform: uppercase;
+      width: 9vw;
+    }
+  }
+}
+
+.new-shop {
+  border: solid $suutil-yellow 2px;
+}
+
+.most-liked {
+  border: solid $suutil-blue 2px;
+}
+
+.desactivated {
+  border: solid red 2px;
+}
+
+.new-shop-text {
+  color: $suutil-yellow;
+}
+
+.most-liked-text {
+  color: $suutil-blue;
+}
+
+.fav-shop-item {
+  height: 11vw;
+  width: 11vw;
+  .shop-info{
+    min-height: 3vw;
+    img {
+      height: 1vw;
+    }
+    p {
+      line-height: normal;
+    }
+    .shop-name {
+      width: 7vw;
+    }
+  }
+}
+
+.create-my-shop {
+  border: solid black 1px;
+  width: 40em;
+  max-width: 100%;
+}
+
+
+@media (min-width: 767px) and (max-width: 1450px) {
+  .shop-detail {
+    .logo {
+      height: 10em;
+      width: 10em;
+    }
+}
+}
+
+@media (max-width: 1220px){
+  .shop-item {
+    .shop-info{
+      min-height: 4.1vw;
+      .shop-name {
+        //width: 4em;
+      }
+      .most-liked-text, .new-shop-text {
+        font-size: 1vw;
+      }
+    }
+  }
+
+  .fav-shop-item {
+    .shop-info{
+      .shop-name {
+        width: 6vw;
+      }
+    }
+  }
+}
+
+
+
+@media(max-width:599px) {
+  .shops-container {
+    max-width: 90vw;
+  }
+  .shop-item {
+    height: 28vw;
+    width: 28vw;
+    margin: 1vw;
+    .shop-info{
+      min-height: 8vw;
+      img {
+        height: 2.5vw;
+      }
+      .shop-name {
+        width: 20vw;
+      }
+      .most-liked-text, .new-shop-text {
+        font-size: 2vw;
+      }
+    }
+  }
+
+  .fav-shop-item {
+    .shop-info{
+      .shop-name {
+        width: 17vw;
+      }
+    }
+  }
+
+  .shop-detail {
+      .fa-plus:before {
+        font-size: 1.7vw!important;
+    }
+  }
+}
+
+.shop-detail-container {
+  position: relative;
+}
+.shop-detail {
+
+  .shop-main-info {
+    position: relative;
+    .shop-like-info {
+      position: absolute;
+      top: 3em;
+      right: 5em;
+    }
+  }
+  .card {
+    border: none;
+    border-bottom: solid $suutil-grey 1px;
+    border-radius: 0;
+    a {
+      color: $suutil-grey;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  .fa-plus {
+    vertical-align: middle;
+  }
+  .fa-plus:before {
+    font-size: 0.7vw;
+    color: $suutil-grey;
+  }
+
+  position: relative;
+  color: $suutil-grey;
+  .medium-column{
+    width: 42em;
+  }
+  .right-column {
+    flex-grow: 100;
+  }
+  @media(max-width: 768px) {
+    .ui-panel {
+      padding: 10px;
+    }
+    .logo{
+    height: 8em;
+    width: 8em;
+    background-size: cover;
+  }
+
+  .shop-title{
+    h4,h5 {
+    //  font-size: 17px;
+    }
+  }
+  .shop-like-info {
+    top: 0em !important;
+    right: 0em  !important;
+  }
+
+  .country img{
+    height: 4vw !important;
+  }
+
+  .rss-icon img {
+    height: 4vw !important;
+  }
+
+  .shop-banner  {
+    background-size: cover;
+    height: 33vw;
+  }
+
+  }
+
+
+
+  .shop-title{
+    flex-grow: 2;
+
+    h4 {
+      font-weight: bold;
+    }
+  }
+
+  .rss-icon img {
+    height: 2vw;
+  }
+  .country img{
+    height: 2vw;
+  }
+
+  .country a {
+    padding-top: 0;
+  }
+
+  .shop-description {
+   p {
+     white-space: pre-wrap;
+     max-width: 100%;
+   }
+  }
+}
+
+
+.nav-left {
+  position: absolute;
+  top: 40%;
+  left: -1vw;
+  background-color: white;
+  opacity: 0.7;
+}
+
+.nav-right {
+  position: absolute;
+  top: 40%;
+  right: -1vw;
+  background-color: white;
+  opacity: 0.7;
+}
+
+.nav-right a, .nav-left a {
+  font-size: 3vw
+}

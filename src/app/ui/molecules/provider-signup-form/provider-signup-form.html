@@ -1,0 +1,50 @@
+<form class="form-signin" (ngSubmit)="onSubmit()" #signupForm="ngForm">
+  <div>
+    <h2>Soy Proveedor de Productos  </h2>
+    <div class="form-group">
+      <label class="form-control-label" for="firstName" translate>Nombre *</label>
+      <input [(ngModel)]="firstName" name="firstName" type="name" class="form-control" id="name" aria-describedby="emailHelp" required
+        placeholder="Nombre de persona de contacto">
+    </div>
+
+    <div class="form-group">
+      <label class="form-control-label" for="lastName" translate>Apellido *</label>
+      <input [(ngModel)]="lastName" name="lastName" type="name" class="form-control" id="lastName" aria-describedby="emailHelp" required
+        placeholder="Apellido de persona de contacto">
+    </div>
+
+    <div class="form-group">
+      <label class="form-control-label" for="company" translate>Empresa/Marca *</label>
+      <input [(ngModel)]="company" name="company" type="name" class="form-control" id="company" aria-describedby="emailHelp" required
+        placeholder="Nombre de tu Espacio de Proveedor">
+    </div>
+
+    <div class="form-group">
+      <label class="form-control-label" for="applicationUrl" translate>Url *</label>
+      <input [(ngModel)]="applicationUrl" name="applicationUrl" type="name" class="form-control" id="applicationUrl" aria-describedby="emailHelp" required
+        placeholder="URL de tu web o catálogo de productos">
+    </div>
+
+
+    <div class="form-group">
+      <label class="form-control-label" for="email" translate>Email *</label>
+      <input [(ngModel)]="email" name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" required
+        placeholder="Introduce tu email">
+    </div>
+  </div>
+
+  <div>
+    <input class="condition-checkbox" type="checkbox" [checked]="acceptConditions" (change)="acceptConditions = !acceptConditions" name="accept">
+    <label class="pointer" routerLink="/condiciones" (click)="closeModal()">Acepto las condiciones</label>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-12 text-right pb-3">
+      <button *ngIf="!isLoading" [disabled]="!signupForm.form.valid" class="col-form-label col-form-label-md" type="submit" class=""
+        translate>Enviar</button>
+        <div *ngIf="isLoading" class="fa fa-circle-o-notch fa-spin mt-5"></div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="form-control-label" >*Campos requeridos</label>
+  </div>
+</form>

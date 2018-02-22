@@ -1,0 +1,29 @@
+<div *ngIf="userRol === 'designer' && user.approved === true || userRol === 'provider' || userRol === 'admin'">
+  <div class="">
+    <div class="d-flex flex-row flex-wrap shops-container">
+        <div *ngFor="let shop of shops.reverse()">
+            <div class="shop-item d-flex flex-column justify-content-end" [style.background-image]="logoUrl(shop._id)" [ngClass]="{'new-shop' : isNew(shop.createdAt), 'most-liked' : shop.likes.length >= 20 && !isNew(shop.createdAt), 'desactivated' : shop.approved === false  }">
+                <div class="shop-info  w-100">
+                    <div class="d-flex flex-row justify-content-between pt-1 pointer">
+                        <div class="d-flex flex-column justify-content-between">
+                            <p routerLink="/shops/id/{{shop._id}}" class="shop-name ml-1 ml-md-2 mb-0">{{shop.shopName}}</p>
+                            <p *ngIf="isNew(shop.createdAt)" class="new-shop-text ml-0 ml-md-2 mb-0">NUEVO</p>
+                            <p *ngIf="shop.likes.length >= 20 && !isNew(shop.createdAt)" class="most-liked-text ml-0 ml-md-2 mb-0">MEJOR VALORADO</p>
+                        </div>
+                        <div class="d-flex flex-row pt-0 pt-sm-1" *ngIf="userRol === 'designer'">
+                            <a *ngIf="!shop.likes ||shop.likes && shop.likes.indexOf(user._id) === -1" class="px-0 px-md-1" (click)="like(shop)"><img src="assets/icons/likeOFF.png" alt="Like"></a>
+                            <a *ngIf="shop.likes && shop.likes.indexOf(user._id) !== -1" class="px-0 px-md-1" (click)="unlike(shop)"><img src="assets/icons/likeON.png" alt="Like"></a>
+                            <a *ngIf="!user.favorites ||user.favorites && user.favorites.indexOf(shop._id) === -1" class="px-1" (click)="addToFavorites(shop)"><img src="assets/icons/favOFF.png" alt="Like"></a>
+                            <a *ngIf="user.favorites && user.favorites.indexOf(shop._id) !== -1" class="px-1" (click)="removeFromFavorites(shop)"><img src="assets/icons/favON.png" alt="Like"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<div *ngIf="userRol === 'designer' && user.approved === false ">
+    <a (click)="confirmMail()"><h1>Confirm your email!</h1></a>
+</div>

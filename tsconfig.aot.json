@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "strictNullChecks": false,
+    "removeComments": true,
+    "allowJs": true,
+    "baseUrl": "./src",
+    "paths": {},
+    "lib": [
+      "dom",
+      "es2015"
+    ],
+    "types": [
+      "hammerjs",
+      "jasmine",
+      "node",
+      "protractor",
+      "selenium-webdriver",
+      "source-map",
+      "uglify-js",
+      "webpack"
+    ],
+    "typeRoots": [
+       "./node_modules/@types"
+    ],
+    "outDir": "aot/compiled"
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/app/**/*.spec.ts"
+  ],
+  "include": [
+    "src/app/**/*.ts"
+  ],
+  "angularCompilerOptions": {
+   "genDir": "aot",
+   "skipMetadataEmit" : true,
+   "debug": false
+ }
+}

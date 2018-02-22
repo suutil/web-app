@@ -1,0 +1,12 @@
+.ui-template {
+    .big-space {
+        width: 100%;
+    }
+    .small-space {
+        width: 48%;
+        min-width: 500px;
+        &.first-element {
+            padding-bottom: 20px;
+        }
+    }
+}

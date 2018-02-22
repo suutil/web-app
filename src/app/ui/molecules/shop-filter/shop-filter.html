@@ -1,0 +1,147 @@
+<div class="d-flex flex-column">
+    <div class="w-100 mt-2 d-flex flex-row justify-content-center">
+        <a routerLink="/shops"><h2>TIENDAS</h2></a>
+    </div>
+    <div class="top-row">
+        <div class="separator mx-5"></div>
+        <div class="d-none d-md-flex flex-row  flex-wrap  px-5 pt-2 justify-content-around category-container">
+            <div *ngFor="let cat of categoryDatas">
+                <div class="filter-dropdown">
+                    <button class="dropbtn"> <a routerLink="/shops/category/{{cat._id}}">{{cat.categoryName}}</a></button>
+                    <div class="dropdown-content">
+                        <div *ngFor="let subcategory of cat.subCategories">
+                            <a routerLink="/shops/category/{{subcategory._id}}">{{subcategory.categoryName}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="d-flex flex-row d-md-none justify-content-center pb-2">
+            <a routerLink="/shops">TODAS</a>
+            <a class="mx-3" (click)="toggleCategoryMenu()">CATEGORÍAS</a>
+            <a (click)="toggleOtherMenu()">OTROS</a>
+        </div>
+
+        <div class="w-100 d-flex flex-column d-md-none d-lg-none d-xl-none responsive-menu px-3" [ngClass]="{'responsive-menu-open': showCategoryMenu}">
+
+            <div id="accordion">
+                <div class="card" *ngFor="let cat of categoryDatas; let i = index">
+
+                    <a class="p-3" (click)="collapse(i)">{{cat.categoryName}}</a>
+
+                    <div [ngClass]="{'show': showCat[i]}" [ngClass]="{'in': showCat[i]}" class="collapse">
+                        <div class="subcategory">
+                            <div class="pl-3 flex-row d-flex flex-wrap">
+                                <div *ngFor="let subcategory of cat.subCategories">
+                                    <a class="mx-2" routerLink="/shops/category/{{subcategory._id}}" (click)="toggleCategoryMenu()">{{subcategory.categoryName}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="w-100 m-0">
+                </div>
+                <hr class="w-100">
+            </div>
+            <input auto-complete [(ngModel)]="myData" [source]="tags" list-formatter="tagName" [open-on-focus]="false" placeholder="mesa, madera, nordico" value-property-name="_id" display-property-name="tagName" (ngModelChange)="valueChanged($event)" no-match-found-text="no hay resultado"
+                max-num-list="4" />
+            <hr class="w-100">
+            <div class="d-flex flex-row justify-content-end pb-3" (click)="toggleCategoryMenu()"><a>CERRAR</a></div>
+        </div>
+
+        <div class="w-100 d-flex flex-column d-md-none d-lg-none d-xl-none responsive-menu px-3" [ngClass]="{'responsive-menu-open': showOtherMenu}">
+            <div class="d-flex flex-column mt-2">
+                <a class="ml-3" routerLink="/shops/new" (click)="toggleOtherMenu()">NUEVAS</a>
+                <hr class="w-100">
+                <a class="ml-3" routerLink="/shops/most-liked" (click)="toggleOtherMenu()">MEJOR VALORADAS</a>
+                <hr class="w-100">
+                <a class="ml-3" data-toggle="collapse" href="#collapseStyle" role="button" aria-expanded="false" aria-controls="collapseStyle">
+     ESTILO
+   </a>
+                <div class="collapse" id="collapseStyle">
+                    <div class="card card-body">
+                        <a routerLink="/shops/tag/5a67646918bbcc000f9d038b" (click)="toggleOtherMenu()">MODERNO</a>
+                        <a routerLink="/shops/tag/5a67647018bbcc000f9d038c" (click)="toggleOtherMenu()">MINIMALISTA</a>
+                        <a routerLink="/shops/tag/5a67647518bbcc000f9d038d" (click)="toggleOtherMenu()">NÓRDICO</a>
+                        <a routerLink="/shops/tag/5a6764a218bbcc000f9d038e" (click)="toggleOtherMenu()">INDUSTRIAL</a>
+                        <a routerLink="/shops/tag/5a6764a918bbcc000f9d038f" (click)="toggleOtherMenu()">VINTAGE</a>
+                        <a routerLink="/shops/tag/5a6764b018bbcc000f9d0390" (click)="toggleOtherMenu()">CLÁSICO</a>
+                        <a routerLink="/shops/tag/5a6764b518bbcc000f9d0391" (click)="toggleOtherMenu()">ÉTNICO</a>
+                        <a routerLink="/shops/tag/5a6764bb18bbcc000f9d0392" (click)="toggleOtherMenu()">RÚSTICO</a>
+                    </div>
+                </div>
+
+                <hr class="w-100">
+                <a class="ml-3" data-toggle="collapse" href="#collapseCountry" role="button" aria-expanded="false" aria-controls="collapseCountry">
+    PAIS
+  </a>
+                <div class="collapse" id="collapseCountry">
+                    <div class="card card-body">
+                        <a routerLink="/shops/country/ESP" (click)="toggleOtherMenu()">ESPAÑA</a>
+                        <a routerLink="/shops/country/PRT" (click)="toggleOtherMenu()">PORTUGAL</a>
+                        <a routerLink="/shops/country/FRA" (click)="toggleOtherMenu()">FRANCIA</a>
+                        <a routerLink="/shops/country/ITA" (click)="toggleOtherMenu()">ITALIA</a>
+                        <a routerLink="/shops/country/DNK" (click)="toggleOtherMenu()">DINAMARCA</a>
+                        <a routerLink="/shops/country/SWE" (click)="toggleOtherMenu()">SUECIA</a>
+                        <a routerLink="/shops/country/NOR" (click)="toggleOtherMenu()">NORUEGA</a>
+                    </div>
+                </div>
+                <hr class="w-100">
+
+                <div class=" ml-3 pt-2 tag-searchbar">
+                    <input auto-complete [(ngModel)]="myData" [source]="tags" list-formatter="tagName" [open-on-focus]="false" placeholder="mesa, madera, nordico" value-property-name="_id" display-property-name="tagName" (ngModelChange)="valueChanged($event)" no-match-found-text="no hay resultado"
+                        max-num-list="4" />
+                </div>
+                <hr class="w-100">
+                <div class="d-flex flex-row justify-content-end pb-3" (click)="toggleOtherMenu()">
+                    <a>CERRAR</a></div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column filter-banner justify-content-center align-items-center mx-2 mx-md-0" [style.background-image]="'url(' + bannerUrl + ')'">
+
+            <h1 routerLink="/magazine" class="mb-3 pointer">NOVEDADES MAGAZINE</h1>
+            <h2 routerLink="/magazine" class="pointer">DESCUBRE NUESTROS PROVEEDORES</h2>
+        </div>
+
+        <div class="bottom-row mt-5">
+            <div class="separator mx-5"></div>
+            <div class="d-none d-md-flex flex-row  flex-wrap  px-5 pt-2 justify-content-center category-container bottom-row">
+                <button class="dropbtn mx-3"> <a routerLink="/shops/new">NUEVAS</a></button>
+                <button class="dropbtn mx-3"> <a routerLink="/shops/most-liked">MEJOR VALORADAS</a></button>
+                <div class="filter-dropdown">
+                    <button class="dropbtn mx-3"> <a>ESTILO</a></button>
+                    <div class="dropdown-content">
+                        <a routerLink="/shops/tag/5a67646918bbcc000f9d038b">MODERNO</a>
+                        <a routerLink="/shops/tag/5a67647018bbcc000f9d038c">MINIMALISTA</a>
+                        <a routerLink="/shops/tag/5a67647518bbcc000f9d038d">NÓRDICO</a>
+                        <a routerLink="/shops/tag/5a6764a218bbcc000f9d038e">INDUSTRIAL</a>
+                        <a routerLink="/shops/tag/5a6764a918bbcc000f9d038f">VINTAGE</a>
+                        <a routerLink="/shops/tag/5a6764b018bbcc000f9d0390">CLÁSICO</a>
+                        <a routerLink="/shops/tag/5a6764b518bbcc000f9d0391">ÉTNICO</a>
+                        <a routerLink="/shops/tag/5a6764bb18bbcc000f9d0392">RÚSTICO</a>
+                    </div>
+                </div>
+
+                <div class="filter-dropdown">
+                    <button class="dropbtn mx-3"> <a routerLink="/shops/new">PAIS</a></button>
+                    <div class="dropdown-content">
+                        <a routerLink="/shops/country/ESP">ESPAÑA</a>
+                        <a routerLink="/shops/country/PRT">PORTUGAL</a>
+                        <a routerLink="/shops/country/FRA">FRANCIA</a>
+                        <a routerLink="/shops/country/ITA">ITALIA</a>
+                        <a routerLink="/shops/country/DNK">DINAMARCA</a>
+                        <a routerLink="/shops/country/SWE">SUECIA</a>
+                        <a routerLink="/shops/country/NOR">NORUEGA</a>
+                    </div>
+                </div>
+                <div class="ml-md-5  ml-0 d-flex flex-column justify-content-center">
+                    <input auto-complete [(ngModel)]="myData" [source]="tags" list-formatter="tagName" [open-on-focus]="false" placeholder="mesa, madera, nordico" value-property-name="_id" display-property-name="tagName" (ngModelChange)="valueChanged($event)" no-match-found-text="no hay resultado"
+                        max-num-list="4" />
+                </div>
+            </div>
+            <div class="separator mx-5 d-none d-md-block"></div>
+        </div>
+
+    </div>

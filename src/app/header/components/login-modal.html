@@ -1,0 +1,2 @@
+<login-form *ngIf="view === 'login'" (goToReset)="setView('reset')"></login-form>
+<reset-password-form *ngIf="view === 'reset'" (goToLogin)="setView('login')"></reset-password-form>

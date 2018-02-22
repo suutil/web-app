@@ -1,0 +1,93 @@
+<div class="d-flex flex-column pr-0">
+  <div class="d-md-none d-lg-none d-xl-none d-flex w-100 px-1 flex-column align-items-center welcome-panel">
+      <h2 class="mt-1">BIENVENIDO</h2>
+      <div class="w-100 mx-5 px-5">
+      <hr class="w-100">
+      </div>
+      <p class="mt-4">Amamos el Buen Diseño: sencillo, útil, comprensible, atemporal, innovador y duradero.<br> Forma parte de nuestra comunidad como:</p>
+      <p class="bold">Profesional del Diseño de Espacios <br> Proveedor de Productos de Interiorismo
+      </p>
+  </div>
+
+
+  <div class="d-flex flex-row justify-content-center row mx-0">
+        <div class="col-md-6 col-sm-12 left-container">
+            <div class="d-flex flex-row register-panel pt-5 justify-content-center " [style.background-image]="'url(' + designerImageUrl + ')'">
+                <div class="left-panel d-flex flex-column" routerLink="/info-designer">
+                    <h1>DISEÑADORES</h1>
+                    <h2 class="mt-2">DE ESPACIOS</h2>
+                    <h3 class="mt-2">ENCUENTRE EL MEJOR</h3>
+                    <h3>DISEÑO PARA TUS PROYECTOS</h3>
+                    <div>
+                      <div class="d-inline-flex button mt-4 px-4 pb-2 pt-2 pointer"><h4 class="mb-0">REGÍSTRATE</h4></div>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6  col-sm-12 right-container">
+            <div class="d-flex flex-row register-panel  justify-content-center pt-5" [style.background-image]="'url(' + providerImageUrl + ')'">
+                    <div class="right-panel d-flex flex-column" routerLink="/info-supplier">
+                        <h1>PROVEEDORES</h1>
+                        <h2 class="mt-2">PARA INTERIORISMO</h2>
+                        <h3 class="mt-2">TU NUEVO CANAL DE PROMOCION</h3>
+                        <h3>Y VENTA A PROFESIONALES</h3>
+                        <div>
+                        <div class="button mt-4 px-4 pb-2 pt-2 d-inline-flex pointer"><h4 class="mb-0">REGÍSTRATE</h4></div></div>
+                    </div>
+
+            </div>
+        </div>
+
+        <div class="welcome-panel m-auto pt-5 px-5 pb-5 d-none d-md-block welcome-panel-md-up">
+            <h2 class="light-grey">BIENVENIDO</h2>
+            <p class="light-grey mt-1">Amamos el Buen Diseño: sencillo, útil, <br> comprensible, atemporal, innovador y duradero.<br> Forma parte de nuestra comunidad como:</p>
+
+            <p class="light-grey bold mb-0">Profesional del Diseño de Espacios <br> Proveedor de Productos de Interiorismo
+            </p>
+        </div>
+
+        <div class="d-flex flex-row justify-content-center flex-wrap mt-1 ml-0">
+
+            <div *ngFor="let post of posts">
+
+                <div class="suggestion-panel m-0 m-md-2 mb-2 d-flex flex-column justify-content-center" [style.background-image]="backgroundUrl(post._id)">
+                        <div (click)="openBlogAccessModal()" routerLink="/magazine/{{post._id}}" class="pointer suggestion-message d-flex flex-column align-items-center justify-content-center p-3">
+                            <h2 class="uppercase">{{post.title}}</h2>
+                            <h3 class="mt-0 mt-md-2">{{post.subtitle}}</h3>
+                        </div>
+                </div>
+
+                <!--    <div class="suggestion-panel"   [style.background-image]="backgroundUrl(post._id)"></div>
+            <div class="suggestion-message w-100 pt-4">
+              <h2>ILUMINACION</h2>
+            </div>-->
+            </div>
+
+
+
+
+            <!--<div class="col-md-4 pr-md-2 pl-0 pr-0">
+            <div class="suggestion-panel" [style.background-image]="'url(' + suggestion1ImageUrl + ')'"></div>
+            <div class="suggestion-message w-100 pt-4">
+              <h2>ILUMINACION</h2>
+            </div>
+        </div>
+        <div class="col-md-4 pr-md-2 pl-0 pr-0">
+            <div class="suggestion-panel" [style.background-image]="'url(' + suggestion2ImageUrl + ')'"></div>
+            <div class="suggestion-message w-100 pt-4">
+              <h2>ECODISENO</h2>
+            </div>
+        </div>
+        <div class="col-md-4 pl-0 pr-0">
+            <div class="suggestion-panel" [style.background-image]="'url(' + suggestion3ImageUrl + ')'"></div>
+            <div class="suggestion-message w-100 pt-4">
+              <h2>HIDRAHULICAS</h2>
+            </div>
+        </div>-->
+
+
+
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,19 @@
+.blog-editor-container {
+  min-height: 50vh;
+  min-width: 60em !important;
+  .edit-post-picture {
+    border: solid $suutil-grey 1px;
+  }
+}
+
+.post-table-item {
+  border-bottom: solid $suutil-grey 1px;
+}
+
+.unactive-post-table-item {
+  background-color: #ECECEC;
+}
+
+.category {
+  border: solid black 1px;
+}

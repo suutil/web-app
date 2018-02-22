@@ -1,0 +1,45 @@
+<div class="d-flex flex-row justify-content-center mt-5">
+  <h3>Mi cuenta</h3>
+</div>
+<div class="container mt-3">
+<panel>
+  <form class="form-signin" (ngSubmit)="onSubmit()" #signupForm="ngForm">
+    <div>
+      <div class="form-group">
+        <label class="form-control-label" for="name" translate>Nombre</label>
+        <div class="row">
+        <input [(ngModel)]="user.firstName" name="firstName" type="text" class="form-control col-md-4" id="firstName" required placeholder="Nombre">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label" for="lastName" translate>Apellidos</label>
+        <div class="row">
+        <input [(ngModel)]="user.lastName" name="lastName" type="text" class="form-control col-md-4" id="lastName" required placeholder="Apellidos">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label" for="email" translate>Dirección de correo</label>
+        <div class="row">
+        <input [(ngModel)]="user.email" name="email" type="email" class="form-control col-md-4" id="email" required placeholder="Dirección de correo">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label pointer underline" for="email" translate routerLink="/change-password">
+            Cambiar mi contraseña
+          </label>
+
+      </div>
+
+    </div>
+    <div class="form-group">
+      <div class="col-sm-12 text-right">
+        <button [disabled]="!signupForm.form.valid" class="col-form-label col-form-label-md" type="submit" class="btn btn-light"
+          translate>Actualizar</button>
+      </div>
+    </div>
+  </form>
+</panel>
+</div>

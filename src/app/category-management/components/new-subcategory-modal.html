@@ -1,0 +1,20 @@
+<h2>Nueva subcategoria</h2>
+<h3>{{parentCategory.categoryName}}</h3>
+
+
+<form class="form-signin px-3" (ngSubmit)="addSubcategory()" #loginForm="ngForm">
+  <div>
+
+    <div class="form-group">
+      <!--<label class="form-control-label" for="email" translate>Email</label>-->
+      <input [(ngModel)]="newSubcategory" name="tag" type="email" class="form-control" id="email"
+        placeholder="Nueva Subategoria">
+    </div>
+
+    <div class="d-flex flex-row justify-content-center pb-3">
+      <button [disabled]="!loginForm.form.valid" type="submit" class=""
+        translate>Guardar</button>
+    </div>
+
+  </div>
+</form>

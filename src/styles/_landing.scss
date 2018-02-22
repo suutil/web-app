@@ -1,0 +1,145 @@
+.left-container {
+  padding-right: 0;
+}
+
+
+landing-content {
+  hr {
+    border-top: solid 2px black !important;
+  }
+}
+.register-panel {
+
+    position: relative;
+    height: 28vw;
+    background-size: cover;
+    color: white;
+    .button {
+      color: $suutil-grey;
+      background-color: white;
+      opacity: 0.7;
+      }
+    .left-panel {
+      position: absolute;
+      left: 5em;
+      top: 25%;
+    }
+    .right-panel {
+      position: absolute;
+      right: 5em;
+      top: 25%;
+    }
+}
+
+@media (max-width: 766px){
+  .left-container, .right-container {
+    padding-right: 0;
+    padding-left: 0;
+    display: inline-flex;
+  }
+  .register-panel {
+    width: 100% !important;
+    max-width: 100%;
+    margin-bottom: 1em;
+    height: 10em;
+    padding-top: 1em !important;
+
+  .left-panel, .right-panel {
+    position: relative;
+    text-align: center;
+    left: auto;
+    right: auto;
+    top: auto;
+  }
+  .button {
+  display: none !important;
+  }
+
+  h1,h2 {
+    display: inline;
+  }
+  h1,h2,h3 {
+    margin: 0 !important;
+  }
+    }
+}
+
+.welcome-panel {
+    background-color: white;
+    text-align: center;
+}
+
+.welcome-panel-md-up {
+  width:24vw;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 14vw;
+}
+
+
+.suggestion-panel {
+    height: 31.5vw;
+    width: 31.5vw;
+    background-size: cover;
+}
+
+.suggestion-message {
+  height: 15em;
+  background-color: rgba(255,255,255, 0.7);
+  z-index: 1;
+  text-align: center;
+}
+
+@media (max-width: 766px){
+.suggestion-panel {
+  width: 100vw;
+  height: 10em;
+}
+}
+.banner {
+  height:  20em;
+  background-size: cover;
+}
+
+@media (min-width: 767px) and (max-width: 1450px) {
+
+  .suggestion-panel {
+      height: 30vw;
+      width: 30vw;
+  }
+  .left-panel{
+    left: inherit;
+  }
+  .right-panel {
+    right: inherit;
+  }
+  .suggestion-message {
+    height: 10vw;
+  }
+
+  .register-panel {
+    height: 35vw;
+    h1,h2 {
+      margin: 0 !important;
+    }
+    h3 {
+      margin-bottom: 0;
+    }
+    .button {
+      padding: 5px !important;
+      padding-left: 8px !important;
+      padding-right: 8px !important;
+   h3 {
+      margin-bottom: 0;
+    }
+      }
+  }
+  .welcome-panel-md-up {
+    top: 18vw;
+    padding: 20px !important;
+  }
+
+}

@@ -1,0 +1,244 @@
+.modal-content {
+  margin: auto;
+  border: none !important;
+  .link {
+    cursor: pointer;
+  }
+  .link:hover {
+    text-decoration: underline !important;
+  }
+}
+
+login-form {
+    width: 25em !important;
+}
+
+form a {
+  color: black;
+}
+form a:hover {
+  color: black;
+}
+
+form button {
+  background-color: #FFFFFF;
+  color: black;
+  border: 1px solid black !important;
+}
+input {
+  //background-color: #F3F9FF !important;
+  box-shadow:inset 0 0 2px 2px rgba(0, 0, 0, 0.07);
+  border: 1px solid $suutil-grey !important;
+  color: black;
+  border-radius: 3px !important;
+}
+
+.upload-input {
+  box-shadow:inset 0 0 2px 2px rgba(0, 0, 0, 0.07);
+  border: 1px solid $suutil-grey !important;
+  color: black;
+  border-radius: 3px !important;
+  label {
+    color: #868686;
+  }
+}
+
+input:focus {
+  background-color: #FFFFFF !important;
+  border: 1px solid $suutil-blue !important;
+  color: #2E3F50 !important;
+}
+
+
+.objective-input {
+  height: 40px;
+}
+
+.search-input {}
+
+.search-input:focus {
+  box-shadow: 0 2px 4px 0 #C0D0D9;
+}
+
+.search-input-container {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+.search-input-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+
+ss-multiselect-dropdown {
+  .dropdown {
+    width: 100% !important;
+  }
+  .dropdown-toggle {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    background-color: #F3F9FF !important;
+    border: 1px solid #C0D0D9 !important;
+    color: #7A9DB1 !important;
+  }
+  .dropdown-toggle:after {
+    display: none;
+  }
+  .dropdown-toggle:hover {
+    background-color: #FFFFFF !important;
+    border: 1px solid #7A9DB1 !important;
+    color: #2E3F50 !important;
+  }
+}
+
+select {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #7A9DB1;
+  color: #2E3F50;
+  height: 35px;
+  padding-left: 10px;
+}
+
+.visibility-notice{
+font-size: 0.8em;
+color: $suutil-grey;
+}
+
+.bold-label {
+  font-weight: bold;
+}
+
+
+.profile-separator {
+  border: solid black 1px;
+}
+
+.category-modal {
+  display: none;
+}
+
+.category-modal.displayed {
+  display: block;
+  position: absolute;
+  left: 30%;
+  //bottom: -10%;
+  width: 70vw;
+  background-color: white;
+  z-index: 2;
+  box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.45);
+}
+
+.category-modal-item {
+    width: 15vw;
+  .main-category {
+    cursor: pointer;
+  }
+  .main-category:hover{
+    text-decoration: underline !important;
+  }
+  .subcategory{
+    line-height: 1.2!important;
+      cursor: pointer;
+  }
+  .subcategory:hover{
+    text-decoration: underline !important;
+  }
+}
+
+.isSet{
+  color: $suutil-blue !important;
+}
+
+.category-modal.displayed.tag-modal {
+  line-height: 1;
+  left: -10vw;
+  top: 20vw;
+  .tag-item {
+    width: 25%
+  }
+}
+
+.toggle-shade {
+  display: none;
+}
+
+
+.toggle-shade.displayed {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100vw;
+  height: 100%;
+  background-color: white;
+  opacity: 0.4;
+  display: block;
+}
+
+.account-form {
+  position: relative;
+}
+
+.account-form button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.logo-container {
+  width: 15em;
+}
+
+.empty-logo {
+  color: $suutil-grey;
+  background-color: #ECECEC;
+}
+
+.upload-input {
+  border: solid $suutil-grey 1px;
+}
+
+.upload-button {
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+.condition-checkbox {
+  background-color: white;
+  border: solid black 1px;
+}
+
+
+@media (max-width: 768px){
+  .logo-container {
+    width: 8em;
+    height: 8em;
+  }
+    .category-modal.displayed.tag-modal {
+    left: -15vw;
+    width: 85vw;
+    .tag-item {
+      width: 50%
+    }
+  }
+  .category-modal.displayed {
+    left: 0;
+    width: 85vw;
+  }
+}
+
+@media (max-width: 630px){
+    .category-modal.displayed.tag-modal {
+    left: -2vw;
+    width: 85vw;
+  }
+  .category-modal-item {
+    width: 42vw;
+  }
+
+}

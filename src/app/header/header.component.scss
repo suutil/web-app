@@ -1,0 +1,54 @@
+.user-avatar {
+    width: 24px;
+    height: 24px;
+}
+
+.nav-item {
+    text-transform: uppercase;
+    &.nav-seperator:after {
+        content: " / ";
+        padding: 0 10px;
+    }
+}
+
+.line-divisor {
+    margin-bottom: 0;
+}
+
+.user-icon img {
+  height: 2vw;
+  width: auto;
+}
+
+.rss-icon img {
+  height: 1.3vw;
+  width: auto;
+}
+
+.social-medias {
+  color: #635E5E;
+}
+
+.my-account {
+  width: 20vw;
+  color: #635E5E;
+  h3 {
+    color: black;
+  }
+  .blue {
+    font-weight: bold;
+  }
+}
+
+.signup-dropdown {
+  width: 20vw;
+  .signup-option{
+    p {
+      color: #635E5E;
+      margin-bottom: 0;
+    }
+  }
+  .signup-option:hover h5{
+    text-decoration: underline;
+  }
+}

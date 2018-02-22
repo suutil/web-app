@@ -1,0 +1,14 @@
+{
+  "app": {
+    "js": "app.29928d460ba563633a91.bundle.js"
+  },
+  "vendor": {
+    "js": "vendor.29928d460ba563633a91.bundle.js"
+  },
+  "globals": {
+    "js": "globals.29928d460ba563633a91.bundle.js"
+  },
+  "polyfills": {
+    "js": "polyfills.29928d460ba563633a91.bundle.js"
+  }
+}

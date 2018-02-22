@@ -1,0 +1,24 @@
+<div class="container-fluid" *ngIf="inRow">
+    <div class="row">
+        <div class="col-1 p-0">
+            <label>{{valueText}}</label>
+        </div>
+        <div class="col-10 pt-1">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" [style.width.%]="progress" [style.background]="color"></div>
+            </div>
+        </div>
+        <div class="col-1 text-right p-0">
+            <label>{{value}}</label>
+        </div>
+    </div>
+</div>
+<div *ngIf="!inRow">
+    <div class="w-100">
+        <h4>{{value}}</h4>
+        <span translate>{{valueText}}</span>
+        <div class="progress thin mt-3">
+            <div class="progress-bar" role="progressbar" [style.width.%]="progress" [style.background]="color"></div>
+        </div>
+    </div>
+</div>

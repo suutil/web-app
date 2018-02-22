@@ -1,0 +1,32 @@
+<panel>
+  <div class="">
+  <h2 class="profile-form-green">TUS DATOS</h2>
+    <form (ngSubmit)="onSubmit()" #newPasswordForm="ngForm" class="ml-5">
+        <div>
+
+          <div class="d-flex flex-row">
+            <label class="d-flex flex-row w-25 justify-content-end pt-2 ml-5">Nombre:</label>
+            <div class="form-group w-50 pl-3 pr-5">
+                <input [(ngModel)]="firstName" name="firstName" type="name" class="form-control" id="firstName" aria-describedby="" required placeholder="Nombre del usuario">
+            </div>
+          </div>
+
+
+          <div class="d-flex flex-row">
+            <label class="d-flex flex-row w-25 justify-content-end pt-2 ml-5">Apellidos:</label>
+            <div class="form-group w-50 pl-3 pr-5">
+                <input [(ngModel)]="lastName" name="lastName" type="name" class="form-control" id="lastName" aria-describedby="" required placeholder="Apellidos del usuario">
+            </div>
+          </div>
+
+          <div class="d-flex flex-row mt-4 mb-4">
+            <div class="d-flex flex-row w-25 justify-content-end pt-1 ml-5"></div>
+            <div class="d-flex w-50 pl-3 pr-5 justify-content-between">
+              <a class="profile-form-green"><u>Cancelar</u></a>
+              <button  class="col-form-label col-form-label-md" type="submit" class="btn profile-form-button px-3" translate>Guardar</button>
+          </div>
+            </div>
+        </div>
+    </form>
+  </div>
+</panel>

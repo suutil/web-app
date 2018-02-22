@@ -1,0 +1,17 @@
+<template ngbModalContainer></template>
+<section id="app" class="app">
+    <header id="header" *ngIf="showHeader" class="w-100"></header>
+    <div class="under-header" *ngIf="showHeader"></div>
+    <div class="d-flex app-content">
+
+            <view-panel>
+                <ng2-page-transition>
+                    <router-outlet (activate)='onActivate($event)'></router-outlet>
+                </ng2-page-transition>
+            </view-panel>
+        </div>
+    <footer></footer>
+</section>
+<div style="position:fixed; top:0; width:100%">
+    <ng2-slim-loading-bar height="4px"></ng2-slim-loading-bar>
+</div>

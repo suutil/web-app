@@ -1,0 +1,29 @@
+<div class="d-flex flex-column align-items-start">
+<label class="form-control-label">Tienda:</label>
+<p>{{shop.shopName}}</p>
+</div>
+
+<form class="form-signin" #signupForm="ngForm">
+    <div class="form-group">
+
+      <label class="form-control-label" for="email" translate>Correo electronico</label>
+    <p>{{shop.contactMail}}</p>
+    </div>
+
+  <div class="form-group row">
+    <div *ngIf="shop.approved">
+          <div class="col-sm-12 text-right pb-3">
+      <button class="col-form-label col-form-label-md" (click)="desActivate()" class="btn btn-danger"
+        translate>Desactivar</button>
+    </div>
+  </div>
+
+  <div *ngIf="!shop.approved">
+        <div class="col-sm-12 text-right pb-3">
+    <button class="col-form-label col-form-label-md" (click)="activate()" class="btn btn-success"
+      translate>Activar</button>
+  </div>
+</div>
+
+  </div>
+</form>

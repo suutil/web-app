@@ -1,0 +1,22 @@
+<div class="mt-5 d-flex flex-row justify-content-around">
+  <button class="btn" (click)="setView('user-management')" [ngClass]="{'active-selector' : view ==='user-management' }">Gestion de usuarios</button>
+  <button class="btn" (click)="setView('shop-management')" [ngClass]="{'active-selector' : view ==='shop-management' }">Gestion de tiendas</button>
+  <button class="btn" (click)="setView('tag-management')" [ngClass]="{'active-selector' : view ==='tag-management' }">Etiquetas</button>
+  <button class="btn" (click)="setView('category-management')" [ngClass]="{'active-selector' : view ==='category-management' }">Gestion de categorias</button>
+  <button class="btn" (click)="setView('blog-management')" [ngClass]="{'active-selector' : view ==='blog-management' }">Blog</button>
+  <button class="btn" (click)="setView('landing-management')" [ngClass]="{'active-selector' : view ==='landing-management' }">Home</button>
+</div>
+
+
+
+<panel class="h-100">
+  <ng2-smart-table *ngIf="view ==='user-management'" [settings]="settings" [source]="data" (custom)="onCustom($event)"></ng2-smart-table>
+  <div *ngIf="view ==='shop-management'" >
+    <a [routerLink]="'/shops/all'">Ver las tiendas</a>
+    <ng2-smart-table [settings]="shopSettings" [source]="shops" (custom)="editShopModal($event)"></ng2-smart-table>
+  </div>
+  <create-tag *ngIf="view ==='tag-management'"></create-tag>
+  <category-management *ngIf="view ==='category-management'" [categories]="categories"></category-management>
+  <blog-management [posts]="blogPosts" *ngIf="view ==='blog-management'"></blog-management>
+  <landing-management *ngIf="view ==='landing-management'"></landing-management>
+</panel>

@@ -1,0 +1,88 @@
+.switch {
+    input[type=checkbox] {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+    }
+    label {
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 40px;
+        height: 20px;
+        margin: 0px;
+        background: #D8D8D8;
+        display: block;
+        border-radius: 10px;
+        position: relative;
+    }
+    label:after {
+        content: '';
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 20px;
+        height: 20px;
+        background: #C70001;
+        border-radius: 20px;
+        transition: 0.3s;
+    }
+    input:checked+label {
+        background: #D8D8D8;
+    }
+    input:checked+label:after {
+        left: calc(100%);
+        transform: translateX(-100%);
+        background: #61AB0F;
+    }
+    &.blocked {
+        input:checked+label:after {
+            left: calc(50%);
+            transform: translateX(-50%);
+            background: $orange;
+        }
+    }
+}
+
+.check {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: auto;
+    input {
+        display: none;
+        &:checked+.box {
+            background-color: #F1F1F1;
+            &:after {
+                top: 0;
+            }
+        }
+    }
+    .box {
+        width: 100%;
+        height: 100%;
+        transition: all 1.1s cubic-bezier(.19, 1, .22, 1);
+        border: 1px solid #D0D0D0;
+        background-color: #F1F1F1;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        &:after {
+            width: 50%;
+            height: 27%;
+            content: '';
+            position: absolute;
+            border-left: 2px solid;
+            border-bottom: 2px solid;
+            border-color: black;
+            transform: rotate(-45deg) translate3d(0, 0, 0);
+            transform-origin: center center;
+            transition: all 1.1s cubic-bezier(.19, 1, .22, 1);
+            left: 0;
+            right: 0;
+            top: 200%;
+            bottom: 0%;
+            margin: auto;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114403989-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-114403989-1');
+</script>
+
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+
+    Suutil
+  </title>
+<!--<%= htmlWebpackPlugin.options.title %>-->
+  <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
+
+  <% if (webpackConfig.htmlElements.headTags) { %>
+    <!-- Configured Head Tags  -->
+    <%= webpackConfig.htmlElements.headTags %>
+      <% } %>
+
+        <!-- base url -->
+        <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+          <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+        <style>
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+            }
+          }
+
+          .animate-flicker {
+            animation: fadeIn 1s infinite alternate;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+          }
+
+        </style>
+</head>
+
+<body>
+
+  <app>
+    <img class="animate-flicker" src="/assets/images/logo.png" width="20%" alt="">
+  </app>
+
+
+
+  <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+    <!-- Webpack Dev Server reload -->
+    <script src="/webpack-dev-server.js"></script>
+    <% } %>
+
+
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+<div class="d-flex flex-row justify-content-md-between justify-content-center pt-md-4 pb-md-4 px-lg-5 mx-md-5 header-container">
+    <div class="d-none d-md-block align-self-center pt-4">
+        <div class="slogan">
+            <h4>LA COMUNIDAD DEL BUEN DISEÑO</h4></div>
+        <div class="d-flex flex-row">
+            <div class="social-medias">
+                <p>Siguenos en:</p>
+            </div>
+            <a class="rss-icon px-1 pointer" href="https://www.instagram.com/suutil.designbetter/" target="_blank"><img src="assets/icons/instagram.png" alt="instagram"></a>
+            <a class="rss-icon px-1 pointer" href="https://www.pinterest.com/suutil/" target="_blank"><img src="assets/icons/pinterest.png" alt="pinterest"></a>
+            <a class="rss-icon px-1 pointer" href="https://es.linkedin.com/company/suutil" target="_blank"><img src="assets/icons/linkedin.png" alt="linkedin"></a>
+            <a class="rss-icon px-1 pointer" href="https://www.facebook.com/Suutil-319707778537941/" target="_blank"><img src="assets/icons/facebook-logo.png" alt="facebook"></a>
+        </div>
+    </div>
+
+
+    <a class="header-logo" [routerLink]="'/'" routerLinkActive="active">
+        <img src="/assets/images/logo.png" height="90" alt="">
+    </a>
+
+    <!-- DESKTOP HEADER -->
+    <div class="d-none d-md-block align-self-center">
+        <div *ngIf="!login" class="d-flex flex-row justify-content-around">
+            <div style="cursor: pointer;">
+                <a class="pt-2" id="navbarDropdownMenuLink" (click)="openLoginModal()">
+                    <div class="mx-2 pointer">
+                        <h4>ENTRAR</h4></div>
+                </a>
+            </div>
+            <div class="dropdown" style="cursor: pointer;">
+                <a class="pt-2" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="mx-2 pointer">
+                        <h4>REGISTRARSE</h4></div>
+                </a>
+                <div class="signup-dropdown dropdown-menu dropdown-menu-right p-3" aria-labelledby="navbarDropdownMenuLink">
+                    <h5>Regístrate</h5>
+                    <p>Selecciona una opcion para registrarte:</p>
+                    <div class="signup-option mb-2">
+                        <a class="pointer" (click)="openDesignerSignupModal()">
+                            <h5>Soy diseñadores de espacios</h5>
+                            <p>Soy interiorista, arquitecto, decorador ...</p>
+                            <p>Quiero acceder a los mejores proveedores</p>
+                        </a>
+                    </div>
+                    <div class="signup-option mb-2">
+                        <a class="pointer" (click)="openProviderSignupModal()">
+                            <h5>Soy proveedor de productos de interiorismo</h5>
+                            <p>Soy distribuidor, fabricante, diseñador de productos...</p>
+                            <p>Quiero tener mi propio espacio de proveedor</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <a class="pointer mx-2 dark" routerLink="/contacto"><h4>CONTACTO</h4></a>
+        </div>
+
+        <div *ngIf="login">
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-row justify-content-between">
+                    <div class="mr-3" routerLink="/magazine">
+                        <h4>MAGAZINE</h4></div>
+                    <div routerLink="/contact">
+                        <h4>CONTACTO</h4></div>
+                </div>
+                <div class="d-flex flex-row justify-content-between">
+                    <div *ngIf="userRol==='designer'">
+                        <div class="d-flex flex-row">
+                            <p>{{user.firstName}}</p>
+                            <p class="ml-2">{{user.lastName}}</p>
+                        </div>
+                    </div>
+                    <div *ngIf="userRol==='provider'">
+                        <p>{{user.company}}</p>
+                    </div>
+                    <div *ngIf="userRol==='admin'">
+                        <p>Admin</p>
+                    </div>
+
+
+                    <div class="dropdown" style="cursor: pointer;">
+                        <a data-toggle="dropdown" class="user-icon"><img src="assets/icons/user.png" alt=""></a>
+                        <div class="my-account px-3 dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <h3 routerLink="/my-account">Mi cuenta</h3>
+                            <hr>
+                            <div *ngIf="userRol==='designer'" routerLink="/my-account">
+                                <div class="d-flex flex-row">
+                                    <p>{{user.firstName}}</p>
+                                    <p class="ml-1">{{user.lastName}}</p>
+                                </div>
+                            </div>
+                            <div *ngIf="userRol==='provider'">
+                                <p>{{user.company}}</p>
+                            </div>
+                            <p>usuario: {{user.email}}</p>
+                            <p routerLink="/change-password">contrasena: *****</p>
+
+
+                            <p><a routerLink="/change-password">Cambiar contraseña</a></p>
+                            <hr>
+                            <div class="blue">
+                                <div *ngIf="userRol==='designer'">
+                                    <a routerLink="/shops/favorites"><h4 class="blue">Mis favoritos</h4></a>
+                                </div>
+                                <div *ngIf="userRol==='provider'">
+                                    <a routerLink="/my-shop"><h4>Mi Espacio de Proveedor</h4></a>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div (click)="logout()">Cerrar sesion</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <!-- MOBILE HEADER -->
+    <div class="d-md-none d-lg-none d-xl-none hamburger">
+        <a class="px-2 pointer" (click)="toggleResponsiveMenu()"><img src="assets/icons/menu-button.png" alt="linkedin"></a>
+    </div>
+</div>
+
+<!-- MOBILE MENUS -->
+<div class="w-100 d-flex flex-column d-md-none d-lg-none d-xl-none responsive-menu px-3" [ngClass]="{'responsive-menu-open': showResponsiveMenu}">
+    <div *ngIf="!login">
+        <div class="p-2 pointer" (click)="openLoginModal(); toggleResponsiveMenu()">ENTRAR</div>
+        <div class="pl-1">
+            <hr>
+        </div>
+        <div class="p-2">REGISTRARSE</div>
+        <h5 class="pl-4 pointer" (click)="openDesignerSignupModal(); toggleResponsiveMenu()">Soy diseñador de espacios</h5>
+        <div class="pl-4">
+            <hr>
+        </div>
+        <h5 class="pl-4 pb-2 pointer" (click)="openProviderSignupModal(); toggleResponsiveMenu()">Soy proveedor de productos de interiorismo</h5>
+        <div class="pl-1">
+            <hr class="mb-0">
+        </div>
+        <div (click)="toggleResponsiveMenu()" class="p-2 pointer" routerLink="/contacto">CONTACTO</div>
+    </div>
+
+    <div *ngIf="login">
+        <div (click)="toggleResponsiveMenu()" routerLink="/magazine" class="p-2 pointer">MAGAZINE</div>
+        <div class="pl-1">
+            <hr>
+        </div>
+        <div (click)="toggleResponsiveMenu()" class="p-2 pointer" routerLink="/contacto">CONTACTO</div>
+        <hr>
+        <div *ngIf="userRol==='designer'" routerLink="/my-account" class="pointer" (click)="toggleResponsiveMenu()">
+            <div class="d-flex flex-row pl-2">
+                <p>{{user.firstName}}</p>
+                <p class="ml-1">{{user.lastName}}</p>
+            </div>
+        </div>
+        <div *ngIf="userRol==='provider'">
+            <a>
+                <p class="ml-1">{{user.company}}</p>
+            </a>
+        </div>
+        <div class="d-flex flex-row pl-2">
+            <p>usuario:</p>
+            <p class="ml-1">{{user.email}}</p>
+        </div>
+        <p class="ml-1" routerLink="/change-password" (click)="toggleResponsiveMenu()">contrasena: *****</p>
+        <hr>
+        <p class="ml-1" routerLink="/change-password" (click)="toggleResponsiveMenu()"><a>Cambiar contraseña</a></p>
+        <hr>
+        <div class="blue">
+            <div *ngIf="userRol==='designer'">
+                <a class="pointer" (click)="toggleResponsiveMenu()" [routerLink]="'/shops/favorites'"><h4>Mis favoritos</h4></a>
+            </div>
+            <div *ngIf="userRol==='provider'">
+                <a class="pointer" (click)="toggleResponsiveMenu()" [routerLink]="'/my-shop'"><h4>Mi Espacio de Proveedor</h4></a>
+            </div>
+        </div>
+        <hr>
+
+        <div class="pb-2 pointer" (click)="logout(); toggleResponsiveMenu()">Cerrar sesion</div>
+    </div>
+</div>
+
+<!-- FIXED NAV BUTTON -->
+<div *ngIf="login" class="side-tab pt-2 pb-2 px-3 pointer">
+    <div *ngIf="userRol === 'designer' && currentUrl !== '/shops/favorites'" [routerLink]="'/shops/favorites'">
+        <a><img src="assets/icons/HEART.png" class="tab-img" alt="Like"></a>
+    </div>
+    <div *ngIf="userRol === 'designer' && currentUrl === '/shops/favorites'" [routerLink]="'/shops'">
+        <a>
+            <a><img src="assets/icons/SHOP.png" class="tab-img"></a>
+        </a>
+    </div>
+    <div *ngIf="userRol === 'provider' && currentUrl !== '/my-shop'" [routerLink]="'/my-shop'">
+        <a><img src="assets/icons/HOME.png" class="tab-img" alt="Like"></a>
+    </div>
+    <div *ngIf="userRol === 'provider' && currentUrl === '/my-shop'" [routerLink]="'/shops'">
+        <a><img src="assets/icons/SHOP.png" class="tab-img"></a>
+    </div>
+</div>

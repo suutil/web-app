@@ -1,0 +1,105 @@
+.front-page {
+  .main-article {
+    height: 22vw;
+    width: 100vw;
+    background-size: cover;
+  }
+
+  .small-article {
+    height: 31.5vw;
+    width: 31.5vw;
+    background-size: cover;
+  }
+  .title {
+    height:12vw;
+    background: rgba(255,255,255, 0.9);
+    .subtitle {
+      font-weight: normal;
+      line-height: 1vw;
+      cursor: pointer;
+    }
+    .main-title {
+      text-align: center;
+      line-height: 1.5vw;
+      cursor: pointer;
+    }
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+
+}
+
+post {
+  h1,h2,h3,h4,h5,h6 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .post-main-picture {
+    height: 20vw;
+    background-size: cover;
+  }
+  hr {
+    border: solid black 1px;
+  }
+  .subtitle {
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2em;
+    font-weight: normal;
+  }
+  .post-title {
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2em;
+  }
+  .post-content{
+    h3 {
+      line-height: 1.5em;
+    }
+    a {
+      color: $suutil-blue;
+    }
+  }
+  .post-picture{
+    height: 25vw;
+    width: 25vw;
+    background-size: cover;
+    .title {
+      cursor: pointer;
+      background: rgba(255,255,255, 0.9);
+    }
+  }
+}
+
+@media (max-width: 768px){
+  post{
+  .post-main-picture {
+    height: 10em;
+  }
+}
+
+.front-page {
+  .small-article {
+    width : 100vw !important;
+  }
+}
+}
+
+@media (min-width: 768px) and (max-width: 1450px) {
+  .front-page {
+    .main-article {
+      background-size: cover;
+    }
+    .title {
+      height:10vw;
+    }
+  }
+  post {
+  .post-picture{
+    height: 19vw;
+    width: 19vw;
+  }
+}
+}

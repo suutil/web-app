@@ -1,0 +1,153 @@
+<h1>Editar Post</h1>
+<div class="blog-editor-container">
+    <div class="big-column blog-editor-container">
+        <div class="d-flex flex-column small-column">
+            <label for="title" class="bold-label">Titulo</label>
+            <div class="pr-5 mt-3">
+                <input name="title" ngModel required class="w-100 pl-2" [(ngModel)]="post.title">
+            </div>
+        </div>
+        <div class="d-flex flex-column small-column">
+            <label for="subtitle" class="bold-label">Subtitulo</label>
+            <div class="pr-5 mt-3">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.subtitle">
+            </div>
+        </div>
+<hr>
+<div class="w-25 mt-3">
+  <label for="">Banner</label>
+    <upload-form [type]="'blog-main-picture'" [maxHeight]="300" [maxWidth]="300" [image]="" [isUploaded]="post.mainImage" [id]="post._id" [collection]="'blog'"></upload-form>
+</div>
+<hr>
+<app-tinymce [(ngModel)]='post.content'></app-tinymce>
+<hr>
+<div class="d-flex flex-row flex-wrap">
+        <div class="w-25 m-1 p-2 mt-3 edit-post-picture">
+          <label for="">Foto 1</label>
+            <upload-form [type]="'picture-1'" [maxHeight]="300" [maxWidth]="300" [image]="" [isUploaded]="post.mainImage" [id]="post._id" [collection]="'blog'"></upload-form>
+            <label for="subtitle" class="bold-label">Comentario</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.comment1">
+            </div>
+            <label for="subtitle" class="bold-label">Link</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.link1">
+            </div>
+        </div>
+
+
+        <div class="w-25 m-1 p-2 mt-3 edit-post-picture">
+          <label for="">Foto 2</label>
+            <upload-form [type]="'picture-2'" [maxHeight]="300" [maxWidth]="300" [image]="" [isUploaded]="post.mainImage" [id]="post._id" [collection]="'blog'"></upload-form>
+            <label for="subtitle" class="align-self bold-label">Comentario</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.comment2">
+            </div>
+            <label for="subtitle" class="bold-label">Link</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.link2">
+            </div>
+        </div>
+
+
+        <div class="w-25 mt-3 m-1 p-2 edit-post-picture">
+            <label for="">Foto 3</label>
+            <upload-form [type]="'picture-3'" [maxHeight]="300" [maxWidth]="300" [image]="" [isUploaded]="post.mainImage" [id]="post._id" [collection]="'blog'"></upload-form>
+            <label for="subtitle" class="align-self bold-label">Comentario</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.comment3">
+            </div>
+            <label for="subtitle" class="bold-label">Link</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.link3">
+            </div>
+        </div>
+
+
+        <div class="w-25 mt-3 m-1 p-2 edit-post-picture">
+          <label for="">Foto 4</label>
+            <upload-form [type]="'picture-4'" [maxHeight]="300" [maxWidth]="300" [image]="" [isUploaded]="post.mainImage" [id]="post._id" [collection]="'blog'"></upload-form>
+            <label for="subtitle" class="align-self bold-label">Comentario</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.comment4">
+            </div>
+            <label for="subtitle" class="bold-label">Link</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.link4">
+            </div>
+        </div>
+
+
+        <div class="w-25 mt-3 m-1 p-2 edit-post-picture">
+            <label for="">Foto 5</label>
+            <upload-form [type]="'picture-5'" [maxHeight]="300" [maxWidth]="300" [image]="" [isUploaded]="post.mainImage" [id]="post._id" [collection]="'blog'"></upload-form>
+            <label for="subtitle" class="align-self bold-label">Comentario</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.comment5">
+            </div>
+            <label for="subtitle" class="bold-label">Link</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.link5">
+            </div>
+        </div>
+
+
+        <div class="w-25 mt-3 m-1 p-2 edit-post-picture">
+          <label for="">Foto 6</label>
+            <upload-form [type]="'picture-6'" [maxHeight]="300" [maxWidth]="300" [image]="" [isUploaded]="post.mainImage" [id]="post._id" [collection]="'blog'"></upload-form>
+            <label for="subtitle" class="align-self bold-label">Comentario</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.comment6">
+            </div>
+            <label for="subtitle" class="bold-label">Link</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.link6">
+            </div>
+        </div>
+
+        <div class="w-25 mt-3 m-1 p-2 edit-post-picture">
+          <label for="">Foto 7</label>
+            <upload-form [type]="'picture-7'" [maxHeight]="300" [maxWidth]="300" [image]="" [isUploaded]="post.mainImage" [id]="post._id" [collection]="'blog'"></upload-form>
+            <label for="subtitle" class="align-self bold-label">Comentario</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.comment7">
+            </div>
+            <label for="subtitle" class="bold-label">Link</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.link7">
+            </div>
+        </div>
+
+
+        <div class="w-25 mt-3 m-1 p-2 edit-post-picture">
+            <label for="">Foto 8</label>
+            <upload-form [type]="'picture-8'" [maxHeight]="300" [maxWidth]="300" [image]="" [isUploaded]="post.mainImage" [id]="post._id" [collection]="'blog'"></upload-form>
+            <label for="subtitle" class="align-self bold-label">Comentario</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.comment8">
+            </div>
+            <label for="subtitle" class="bold-label">Link</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.link8">
+            </div>
+        </div>
+
+
+        <div class="w-25 mt-3 m-1 p-2 edit-post-picture">
+          <label for="">Foto 9</label>
+            <upload-form [type]="'picture-9'" [maxHeight]="300" [maxWidth]="300" [image]="" [isUploaded]="post.mainImage" [id]="post._id" [collection]="'blog'"></upload-form>
+            <label for="subtitle" class="align-self bold-label">Comentario</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.comment9">
+            </div>
+            <label for="subtitle" class="bold-label">Link</label>
+            <div class="pr-5 mt-1">
+                <input name="subtitle" ngModel required class="w-100 pl-2" [(ngModel)]="post.link9">
+            </div>
+        </div>
+
+</div>
+<hr>
+        <div class="edit-post px-3 p-2"><a (click)="editPost()">Guardar</a></div>
+    </div>
+</div>

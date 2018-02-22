@@ -1,0 +1,40 @@
+.ui-view-panel {
+  width: 99vw;
+}
+
+.ui-panel {
+    padding: 32px 32px 16px;
+    background: white;
+    box-shadow: 0 0 50px 2px rgba(0, 0, 0, 0.25);
+}
+
+.ui-panel-body {
+    padding-top: 32px;
+}
+
+.lateral-info {
+    position: relative;
+    width: 260px;
+
+    .info {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+
+        &.visible {
+            opacity: 1;
+        }
+        transition: all 0.2s ease-out;
+    }
+
+    .instructions {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+
+        &.visible {
+            opacity: 1;
+        }
+        transition: all 0.2s ease-in;
+    }
+}

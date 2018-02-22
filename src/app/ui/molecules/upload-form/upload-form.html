@@ -1,0 +1,13 @@
+<div class="upload-input p-1 p-lg-2" [ngStyle]="{'width': '100%'}" >
+  <input id="{{type}}" name="{{type}}" type="file" accept="image/*" imageUpload (imageSelected)="selected($event)" [resizeOptions]="resizeOptions"
+    [ngStyle]="{'display': 'none'}">
+
+
+    <label for="{{type}}" class="w-100 justify-content-start " style="min-height:30px; display: inline !important">
+    {{placeholder || 'examinar archivo ...'}}
+    </label>
+
+</div>
+<div class="d-flex flex-row justify-content-end">
+<a class="upload-button" (click)="save()">Guardar</a>
+</div>

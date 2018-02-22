@@ -1,0 +1,26 @@
+<div class="d-flex flex-row justify-content-center">
+    <h2 class="mb-4 mt-2">MIS FAVORITOS ({{shops.length}})</h2>
+</div>
+<div *ngIf="userRol === 'designer' && user.approved === true || userRol === 'provider' || userRol === 'admin'">
+<div class="d-flex flex-row flex-wrap justify-content-center">
+  <div *ngFor="let shop of shops">
+<div class="shop-item fav-shop-item m-2 d-flex flex-column justify-content-end"  [style.background-image]="logoUrl(shop._id)" [ngClass]="{'new-shop' : isNew(shop.createdAt), 'most-liked' : shop.likes.length >= 20 && !isNew(shop.createdAt)  }">
+  <div class="shop-info  w-100">
+<div class="d-flex flex-row justify-content-between pt-1" routerLink="/shops/id/{{shop._id}}">
+    <p class="shop-name m-1">{{shop.shopName}}</p>
+    <div *ngIf="userRol === 'designer'">
+    <a *ngIf="!shop.likes ||shop.likes && shop.likes.indexOf(user._id) === -1" (click)="like(shop)"><img src="assets/icons/likeOFF.png" alt="Like"></a>
+      <a *ngIf="shop.likes && shop.likes.indexOf(user._id) !== -1" (click)="unlike(shop)"><img src="assets/icons/likeON.png" alt="Like"></a>
+    <a *ngIf="!user.favorites ||user.favorites && user.favorites.indexOf(shop._id) === -1" class="ml-1" (click)="addToFavorites(shop)"><img src="assets/icons/favOFF.png" alt="Like"></a>
+    <a *ngIf="user.favorites && user.favorites.indexOf(shop._id) !== -1" class="ml-1" (click)="removeFromFavorites(shop)"><img src="assets/icons/favON.png" alt="Like"></a>
+    </div>
+</div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<div *ngIf="userRol === 'designer' && user.approved === false ">
+  <a (click)="confirmMail()"><h1>Confirm your email!</h1></a>
+</div>

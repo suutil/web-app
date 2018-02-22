@@ -1,0 +1,40 @@
+<form class="form-signin" (ngSubmit)="onSubmit()" #signupForm="ngForm">
+  <div>
+    <h2>Soy Diseñador de Espacios</h2>
+
+    <div class="form-group" >
+      <label class="form-control-label" for="name">Nombre *</label>
+      <input [(ngModel)]="name" name="name" type="text" class="form-control" id="name" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-control-label" for="lastName">Apellidos *</label>
+      <input [(ngModel)]="lastName" name="lastName" type="text" class="form-control" id="lastName">
+    </div>
+
+    <div class="form-group">
+      <label class="form-control-label" for="email" translate>Email *</label>
+      <input [(ngModel)]="email" name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" required
+        placeholder="Introduce tu email">
+    </div>
+    <div class="form-group ">
+      <label class="form-control-label" for="password" translate>Contraseña *</label>
+      <input [(ngModel)]="password" name="password" type="password" class="form-control" id="password" required placeholder="De 6 a 8 caracteres alfanuméricos">
+    </div>
+    <div>
+      <input class="condition-checkbox" type="checkbox" [checked]="acceptConditions" (change)="acceptConditions = !acceptConditions" name="accept">
+      <label class="pointer" routerLink="/condiciones" (click)="closeModal()">Acepto las condiciones</label>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div *ngIf="!isLoading" class="col-sm-12 text-right pb-3">
+      <button  [disabled]="!signupForm.form.valid" class="col-form-label col-form-label-md" type="submit" class=""
+        translate>Enviar</button>
+    </div>
+    <div *ngIf="isLoading" class="fa fa-circle-o-notch fa-spin mt-5"></div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-control-label" >*Campos requeridos</label>
+  </div>
+</form>

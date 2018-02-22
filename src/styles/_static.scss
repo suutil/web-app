@@ -1,0 +1,40 @@
+.static-layout {
+  hr {
+    border: solid black 1px;
+  }
+  .main-image {
+    height: 25vw;
+    background-size: cover;
+  }
+  p {
+    font-size: 18px;
+  }
+  .info-list{
+    p {
+    margin-bottom: 1px;
+    text-align: center;
+  }
+}
+
+button {
+  background-color: #FFFFFF;
+  color: black;
+  border: 1px solid black !important;
+}
+  @media (max-width: 766px){
+    h2 {
+      font-size: 20px;
+    }
+    h3 {
+      font-size: 17px;
+    }
+    p {
+      font-size: 12px;
+    }
+    hr {
+      border: 0;
+      border-top: solid black 1px;
+      margin: 0 !important;
+    }
+  }
+}

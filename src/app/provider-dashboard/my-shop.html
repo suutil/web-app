@@ -1,0 +1,343 @@
+<div *ngIf="!shop">
+    <div class="d-flex flex-column m-5 p-5 justify-content-center align-items-center">
+        <h3 (click)="createShop()" class="pointer blue">Editar</h3>
+        <p class="mt-2">Esta es la plantilla de tu "Espacio de Proveedor". Clica en "Editar" y complétala. </p>
+    </div>
+</div>
+
+<div *ngIf="shop" class="px-lg-5 px-1 mx-lg-5 mx-md-2 mx-0 shop-container">
+    <div class="d-flex flex-row w-100 justify-content-between px-3">
+        <div>
+            <a *ngIf="user && user.rol === 'designer'" [routerLink]="'/shops'">VOLVER</a>
+        </div>
+        <div>
+            <div *ngIf="user && user.rol === 'designer'">
+                <h2>{{shop.shopName}}</h2></div>
+            <div *ngIf="user && user.rol === 'provider'">
+                <h2 class="ml-5 pl-5">MI ESPACIO DE PROVEEDOR</h2></div>
+        </div>
+        <div>
+            <h3 *ngIf="user && user.rol === 'provider'" class="blue pointer" [routerLink]="'/my-shop/edit'">EDITAR</h3></div>
+
+    </div>
+    <panel class="m-0 mx-5 shop-detail">
+        <div class="d-flex flex-column  pb-5">
+            <div class="d-flex flex-row flex-wrap shop-main-info pb-0 p-1 p-md-2 w-100">
+                <div class="logo" [style.background-image]="backgroundUrl(shop._id,'logo')"></div>
+                <div class="d-md-flex flex-column mt-md-0 mt-5 w-50 p-md-5 shop-title">
+                    <div class="d-block d-md-none" *ngFor="let cat of categories">
+                        <h4 class="d-inline-flex" *ngIf="shop.categories.indexOf(cat._id) !== -1 && cat.type === 'category'">{{cat.categoryName}}</h4>
+                    </div>
+                    <h4 class="d-flex flex-wrap">{{shop.shopName}}</h4>
+                    <h5 class="d-flex flex-row flex-wrap mt-3">{{shop.shortDescription}}</h5>
+                    <h4 class="d-flex flex-wrap status">{{shop.dateStatus}}</h4>
+                </div>
+
+                <div class="d-flex flex-row justify-content-end shop-like-info">
+                    <div class="d-flex flex-column pl-5">
+                      <div class="d-flex flex-row flex-wrap justify-content-end">
+                        <div class="d-none d-md-block" *ngFor="let cat of categories">
+                            <h4 class="d-inline-flex px-1 " *ngIf="shop.categories.indexOf(cat._id) !== -1 && cat.type === 'category'">{{cat.categoryName}}</h4>
+                        </div>
+                      </div>
+                        <div class="d-flex flex-row justify-content-end country">
+                            <h4 class="pt-1 pt-md-2 mr-2">{{shop.country}}</h4>
+                            <img class="mr-3 mt-1 mt-md-0" src="assets/images/flags/{{shop.country}}.png">
+                            <div>
+                                <a class="mr-3"><img src="assets/icons/likeOFF.png" alt="Like"></a>
+                                <a class="mr-3"><img height="20" src="assets/icons/favOFF.png" alt="Like"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="d-flex flex-row justify-content-center justify-content-md-between flex-wrap  px-md-2 pt-0">
+
+                <div class="row">
+
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="d-flex flex-column w-100">
+
+
+
+                            <div class="d-flex mt-3">
+                                <div class="shop-banner w-100" [style.background-image]="backgroundUrl(shop._id,'banner')"></div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-md-between mt-3 flex-wrap justify-content-around">
+                                <div class="picture px-1" [style.background-image]="backgroundUrl(shop._id,'picture1')"></div>
+                                <div class="picture px-1" [style.background-image]="backgroundUrl(shop._id,'picture2')"></div>
+                            </div>
+                            <div class="d-none flex-row justify-content-center mt-5 social d-md-flex">
+                                <a *ngIf="shop.webLink" href="//{{shop.webLink}}" class="rss-icon px-2" target="_blank"><img src="assets/icons/web.png" alt="facebook"></a>
+                                <a *ngIf="shop.facebook" href="//{{shop.facebook}}" class="rss-icon px-2" target="_blank"><img src="assets/icons/facebook.png" alt="facebook"></a>
+                                <a *ngIf="shop.instagram" href="//{{shop.instagram}}" class="rss-icon px-2" target="_blank"><img src="assets/icons/instagram.png" size="10" alt="instagram"></a>
+                                <a *ngIf="shop.pinterest" href="//{{shop.pinterest}}" class="rss-icon px-2" target="_blank"><img src="assets/icons/pinterest.png" alt="pinterest"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xs-12 px-0">
+                        <div class="d-flex flex-column w-100">
+
+                            <div class="shop-description mx-3">
+                                <p class="d-flex flex-wrap">{{shop.description}}</p>
+                            </div>
+
+
+                            <div class="d-flex flex-column mt-bg-5 mt-2 mb-5 mx-3 conditions">
+                                <h4>CONDICIONES</h4>
+                                <div id="accordion">
+                                    <div class="card p-0 p-lg-2">
+                                      <a href="#collapsePayment" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+                                        <div class="d-flex flex-row">
+                                          <div class="fa fa-plus mx-2 "></div>
+                                        <p class="mb-0">
+                                          Formas de pago
+                                        </p>
+                                        </div>
+                                        </a>
+                                        <div id="collapsePayment" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <p class="p-2">{{shop.payment}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card p-0 p-lg-2">
+                                      <a href="#collapseShip" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+                                        <div class="d-flex flex-row">
+                                          <div class="fa fa-plus mx-2"></div>
+                                          <p class="mb-0">
+                                          Envío
+                                        </p>
+                                      </div>
+                                        </a>
+                                        <div id="collapseShip" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <p class="p-2">{{shop.shippingMethod}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card p-0 p-lg-2">
+                                      <a href="#collapseRefund" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+                                        <div class="d-flex flex-row">
+                                          <div class="fa fa-plus mx-2"></div>
+                                          <p class="mb-0">
+                                          Devoluciones y reembolso
+                                        </p>
+                                      </div>
+                                        </a>
+                                        <div id="collapseRefund" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <p class="p-2">{{shop.paymentMethod}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="card p-0 p-lg-2">
+                                      <a href="#collapsePro" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+                                        <div class="d-flex flex-row">
+                                          <div class="fa fa-plus mx-2"></div>
+                                          <p class="mb-0">
+                                            Condiciones de venta para profesionales
+                                        </p>
+                                      </div>
+                                        </a>
+                                        <div id="collapsePro" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <p class="p-2">{{shop.proConditions}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                            <div class="mt-0 mt-bg-5 pt-1 pt-bg-5 mx-3">
+                                <h4>CONTACTO</h4>
+                                <div class="d-flex flex-row flex-wrap">
+                                    <a *ngIf="shop.webLink" href="//{{shop.webLink}}" target="_blank"><p class="mb-1">{{shop.webLink}} &nbsp;</p>
+                                    </a>
+                                    <p class="mb-1" *ngIf="shop.contactMail"> &nbsp; | &nbsp; {{shop.contactMail}}&nbsp;  </p>
+                                    <div class="d-flex flex-row">
+                                      <p class="mb-1" *ngIf="shop.phone">{{shop.phone}}</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row flex-wrap">
+                                    <p class="mb-1" *ngIf="shop.address">{{shop.address}}</p>
+                                    <p class="mb-1" *ngIf="shop.hours">{{shop.hours}}</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row flex-wrap mt-3 mb-5 mx-3">
+                                <div *ngFor="let tag of tags">
+                                    <div *ngIf="shop.tags.indexOf(tag._id) !== -1">
+                                        <p class="blue mx-2 mb-1">#{{tag.tagName}} &nbsp;</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center mt-md-5 mt-0 mb-5 social d-md-none w-100">
+                        <a *ngIf="shop.webLink" href="//{{shop.webLink}}" class="rss-icon px-2" target="_blank"><img src="assets/icons/web.png" alt="facebook"></a>
+                        <a *ngIf="shop.facebook" href="//{{shop.facebook}}" class="rss-icon px-2" target="_blank"><img src="assets/icons/facebook.png" alt="facebook"></a>
+                        <a *ngIf="shop.instagram" href="//{{shop.instagram}}" class="rss-icon px-2" target="_blank"><img src="assets/icons/instagram.png" size="10" alt="instagram"></a>
+                        <a *ngIf="shop.pinterest" href="//{{shop.pinterest}}" class="rss-icon px-2" target="_blank"><img src="assets/icons/pinterest.png" alt="pinterest"></a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </panel>
+</div>
+
+
+
+<div *ngIf="!shop" class="px-lg-5 px-1 mx-lg-5 mx-md-2 mx-0 shop-container empty-shop">
+
+    <panel class="m-0 mx-5 shop-detail">
+        <div class="d-flex flex-column">
+            <div class="d-flex flex-row flex-wrap shop-main-info pb-0 p-1 p-md-2 w-100">
+                <div class="logo border" >
+                <p class="text-align-center p-5 light-grey">Logo</p>
+              </div>
+                <div class="d-md-flex flex-column mt-md-0 mt-5 w-50 p-md-5 shop-title">
+
+                        <h4 class="d-inline-flex">CATEGORÍA</h4>
+                    <h4 class="d-flex flex-wrap">TU NOMBRE</h4>
+                    <h5 class="d-flex flex-row flex-wrap mt-3">DESCRIPCIÓN CORTA</h5>
+                    <h4 class="new-shop-text mt-1">¡NUEVO!</h4>
+                </div>
+
+                <div class="d-flex flex-row justify-content-end shop-like-info">
+                    <div class="d-flex flex-column pl-5">
+                        <div class="d-none d-md-block">
+                            <h3 class="d-inline-flex" >CATEGORÍA</h3>
+                        </div>
+                        <div class="d-flex flex-row justify-content-end country">
+                            <h4 class="pt-1 pt-md-2 mr-2">ESP</h4>
+                            <img class="mr-3 mt-1 mt-md-0" src="assets/images/flags/ESP.png">
+                            <div>
+                                <a class="mr-3"><img src="assets/icons/likeOFF.png" alt="Like"></a>
+                                <a class="mr-3"><img height="20" src="assets/icons/favOFF.png" alt="Like"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="d-flex flex-row justify-content-center justify-content-md-between flex-wrap  px-md-2 pt-0">
+
+                <div class="row w-100">
+
+                    <div class="col-sm-6 col-xs-12">
+                        <div class="d-flex flex-column w-100">
+
+
+
+
+                                <div class="shop-banner w-100 d-flex flex-row justify-content-center border">
+                                <p class="text-align-center p-5 light-grey">Imagen 1</p>
+                                </div>
+
+                            <div class="d-flex flex-row justify-content-md-between mt-3 flex-wrap justify-content-around">
+                                <div class="picture px-1 border pt-3 pb-3">
+                                  <p class="text-align-center p-5 mt-5 mb-5 light-grey">Imagen 2</p>
+                                </div>
+                                <div class="picture px-1 border pt-3 pb-3">
+                                <p class="text-align-center p-5 mt-5 mb-5 light-grey">Imagen 3</p>
+                              </div>
+                            </div>
+                            <div class="d-none flex-row justify-content-center mt-5 social d-md-flex">
+                                <a class="rss-icon px-2"><img src="assets/icons/web.png" alt="facebook"></a>
+                                <a class="rss-icon px-2"><img src="assets/icons/facebook.png" alt="facebook"></a>
+                                <a class="rss-icon px-2"><img src="assets/icons/instagram.png" size="10" alt="instagram"></a>
+                                <a class="rss-icon px-2"><img src="assets/icons/pinterest.png" alt="pinterest"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xs-12 px-0">
+                        <div class="d-flex flex-column w-100">
+
+                            <div class="shop-description mx-3 border">
+                                <h4 class=" m-3">DESCRIPCIÓN</h4>
+                            </div>
+
+
+                            <div class="d-flex flex-column  mt-bg-5 mt-2 mb-5 mx-3">
+                                <h4>CONDICIONES</h4>
+
+                            <div id="accordion">
+                                <div class="card p-0 p-lg-2">
+                                    <h5 class="mb-0" data-toggle="collapse" data-target="#collapsePayment" aria-expanded="true" aria-controls="collapseOne">
+                                      Formas de pago
+                                    </h5>
+                                    <div id="collapsePayment" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <p> Formas de pago</p>
+                                    </div>
+                                </div>
+
+                                <div class="card p-0 p-lg-2">
+                                    <h5 class="mb-0" data-toggle="collapse" data-target="#collapseShip" aria-expanded="true" aria-controls="collapseOne">
+                                      Envío
+                                    </h5>
+                                    <div id="collapseShip" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <p>Envío</p>
+                                    </div>
+                                </div>
+
+                                <div class="card p-0 p-lg-2">
+                                    <h5 class="mb-0" data-toggle="collapse" data-target="#collapseRefund" aria-expanded="true" aria-controls="collapseOne">
+                                    Devoluciones y reembolso
+                                    </h5>
+                                    <div id="collapseRefund" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <p>Devoluciones y reembolso</p>
+                                    </div>
+                                </div>
+
+                                <div class="card p-0 p-lg-2">
+                                    <h5 class="mb-0" data-toggle="collapse" data-target="#collapsePro" aria-expanded="true" aria-controls="collapseOne">
+                                      Condiciones de venta para profesionales
+                                    </h5>
+                                    <div id="collapsePro" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                        <p>Condiciones de venta para profesionales</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+
+
+                            <div class="mt-0 mt-bg-5 pt-1 pt-bg-5 mx-3">
+                                <h4>CONTACTO</h4>
+                                <div class="d-flex flex-row flex-wrap">
+                                    <a><p class="mb-1">www.tuweb.com &nbsp;</p>
+                                    </a>
+                                    <p > &nbsp; | &nbsp; tumail@mail.com &nbsp;  </p>
+                                    <div class="d-flex flex-row">
+                                      <p class="mb-1" >Tu telefono: +34 000 000 000</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row flex-wrap">
+                                    <p class="mb-1">La dirección física de tu tienda, showroom o almacén.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row flex-wrap mt-3 mb-5 mx-3">
+                                        <p class="blue mx-2 mb-1">Etiquetas que te describen, como: #mobiliario #nordico #madeinspain #ecologico</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center mt-md-5 mt-0 mb-5 social d-md-none w-100">
+                        <a class="rss-icon px-2"><img src="assets/icons/web.png" alt="facebook"></a>
+                        <a class="rss-icon px-2"><img src="assets/icons/facebook.png" alt="facebook"></a>
+                        <a class="rss-icon px-2"><img src="assets/icons/instagram.png" size="10" alt="instagram"></a>
+                        <a class="rss-icon px-2"><img src="assets/icons/pinterest.png" alt="pinterest"></a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </panel>
+</div>
