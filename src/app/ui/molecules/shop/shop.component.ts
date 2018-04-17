@@ -4,7 +4,7 @@ import { ShopService } from 'app/shared/services/shop.service'
 import { UsersService } from 'app/shared/services/api/users.service';
 import { AuthenticationService } from 'app/shared/authentication.service'
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
-import { ActivatedRouteSnapshot, RouterStateSnapshot, Resolve } from '@angular/router'
+import { ActivatedRouteSnapshot, RouterStateSnapshot, Resolve, Router } from '@angular/router'
 
 import * as moment from 'moment';
 
@@ -27,6 +27,7 @@ previousId: string
 nextId: string
  shop: any = {}
     constructor(private route: ActivatedRoute,
+                private router: Router,
                 private authenticationService: AuthenticationService,
                 private _sanitizer: DomSanitizer,
                 private userService: UsersService,
@@ -85,6 +86,9 @@ nextId: string
     }
 
     buildLinks(ids){
+      if(!this.shop){
+        return
+      }
       let currentId
       ids.forEach((el,i)=>{
         if(el._id === this.shop._id){
@@ -138,6 +142,14 @@ nextId: string
       else {
         return false
       }
+    }
+
+    createShop(){
+       this.shopService.createShop(this.user._id)
+       .then(response=>{
+       this.router.navigate(['/my-shop/edit'])
+     }
+     )
     }
 
 }

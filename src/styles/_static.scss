@@ -38,3 +38,13 @@ button {
     }
   }
 }
+
+.big-icon {
+  height: 3.3vw;
+}
+
+@media (max-width: 599px){
+  .big-icon {
+    height: 7vw;
+  }
+}

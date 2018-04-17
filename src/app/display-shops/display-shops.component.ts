@@ -48,14 +48,16 @@ login: boolean
        })
      }
 
-     addToFavorites(shop){
+     addToFavorites(shop,event){
+       event.stopPropagation();
        return this.shopService.addToFavorites(shop._id)
        .then((updatedUser)=>{
          this.user = updatedUser;
        })
      }
 
-     removeFromFavorites(shop){
+     removeFromFavorites(shop,event){
+      event.stopPropagation();
       let index = this.shops.indexOf(shop);
        return this.shopService.removeFromFavorites(shop._id)
        .then((updatedUser)=>{
@@ -73,7 +75,8 @@ login: boolean
        return this.confirmationService.sendConfirmationMail(this.user.email)
      }
 
-     like(shop){
+     like(shop,event){
+       event.stopPropagation();
        let index = this.shops.indexOf(shop);
        return this.shopService.likeShop(shop._id)
        .then((updatedShop)=>{
@@ -81,7 +84,8 @@ login: boolean
        })
      }
 
-     unlike(shop){
+     unlike(shop,event){
+       event.stopPropagation();
        let index = this.shops.indexOf(shop);
        return this.shopService.unlikeShop(shop._id)
        .then((updatedShop)=>{

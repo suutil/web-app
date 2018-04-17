@@ -26,6 +26,7 @@ ngOnInit(){
 
 valueChanged(newVal) {
   if(newVal._id){
+    this.toggleCategoryMenu()
     this.router.navigate(["shops/tag", newVal._id])
   }
 }

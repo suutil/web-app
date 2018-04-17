@@ -34,6 +34,9 @@
                     <div [ngClass]="{'show': showCat[i]}" [ngClass]="{'in': showCat[i]}" class="collapse">
                         <div class="subcategory">
                             <div class="pl-3 flex-row d-flex flex-wrap">
+                              <div>
+                              <a class="mx-2" routerLink="/shops/category/{{cat._id}}" (click)="toggleCategoryMenu()">TODO</a>
+                              </div>
                                 <div *ngFor="let subcategory of cat.subCategories">
                                     <a class="mx-2" routerLink="/shops/category/{{subcategory._id}}" (click)="toggleCategoryMenu()">{{subcategory.categoryName}}</a>
                                 </div>

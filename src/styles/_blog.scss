@@ -1,17 +1,16 @@
 .front-page {
   .main-article {
     height: 22vw;
-    width: 100vw;
+    width: 99vw;
     background-size: cover;
   }
 
   .small-article {
-    height: 31.5vw;
-    width: 31.5vw;
+    height: 32.5vw;
+    width: 32.5vw;
     background-size: cover;
   }
   .title {
-    height:12vw;
     background: rgba(255,255,255, 0.9);
     .subtitle {
       font-weight: normal;
@@ -24,7 +23,7 @@
       cursor: pointer;
     }
   }
-  h2 {
+  h2, h4 {
     text-transform: uppercase;
   }
 
@@ -81,8 +80,12 @@ post {
 }
 
 .front-page {
+  .main-article {
+    height : 50vw;
+  }
   .small-article {
     width : 100vw !important;
+    height: 40vw;
   }
 }
 }

@@ -17,7 +17,7 @@ landing-content {
     .button {
       color: $suutil-grey;
       background-color: white;
-      opacity: 0.7;
+      opacity: 0.9;
       }
     .left-panel {
       position: absolute;
@@ -70,7 +70,7 @@ landing-content {
 }
 
 .welcome-panel-md-up {
-  width:24vw;
+  width:27vw;
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -79,10 +79,17 @@ landing-content {
   top: 14vw;
 }
 
-
+.posts {
+  .suggestion-panel-container:nth-child(1){
+  margin-right: 1vw ;
+}
+.suggestion-panel-container:nth-child(2){
+margin-right: 1vw ;
+}
+}
 .suggestion-panel {
-    height: 31.5vw;
-    width: 31.5vw;
+    height: 31.7vw;
+    width: 31.7vw;
     background-size: cover;
 }
 
@@ -106,10 +113,6 @@ landing-content {
 
 @media (min-width: 767px) and (max-width: 1450px) {
 
-  .suggestion-panel {
-      height: 30vw;
-      width: 30vw;
-  }
   .left-panel{
     left: inherit;
   }
@@ -121,7 +124,7 @@ landing-content {
   }
 
   .register-panel {
-    height: 35vw;
+    height: 27vw;
     h1,h2 {
       margin: 0 !important;
     }
@@ -138,8 +141,7 @@ landing-content {
       }
   }
   .welcome-panel-md-up {
-    top: 18vw;
-    padding: 20px !important;
+    top: 16vw;
   }
 
 }

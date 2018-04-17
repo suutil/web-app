@@ -48,11 +48,11 @@ import { ShopComponent } from 'app/ui/molecules/shop/shop.component';
                 },
 
                     {
-                        path: '', component: MyShopComponent, canActivate: [AuthenticationGuard],
+                        path: '', component: ShopComponent, canActivate: [AuthenticationGuard],
                         data: { accessList: ['provider', 'admin'] },
                         resolve: {
                             user: ProviderDashboardResolver,
-                            shop: ShopResolver,
+                            shopData: ShopResolver,
                             tags: TagsResolver,
                             categories: CategoriesResolver,
                             preview: PreviewResolver

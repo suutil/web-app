@@ -37,6 +37,7 @@ export class ConfirmationService {
       this.confirmationService.create({ activated: true})
 
       .then(user => {
+        console.log(user)
         localStorage.setItem('user', JSON.stringify(user));
         this.toastManager.success('Has confirmado tu mail con éxito')
         this.router.navigate(['/shops'])
@@ -45,7 +46,7 @@ export class ConfirmationService {
         if (error && error.code === 401) {
           this.toastManager.error('El enlace ha expirado, vuelva a crear otro')
         } else {
-          this.toastManager.error('Algo ha ido mal, vuelva a intentarlo')
+          //this.toastManager.error('Algo ha ido mal, vuelva a intentarlo')
         }
       })
     }

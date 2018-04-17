@@ -2,9 +2,9 @@
     <h2 class="mb-4 mt-2">MIS FAVORITOS ({{shops.length}})</h2>
 </div>
 <div *ngIf="userRol === 'designer' && user.approved === true || userRol === 'provider' || userRol === 'admin'">
-<div class="d-flex flex-row flex-wrap justify-content-center">
+<div class="d-flex flex-row flex-wrap shops-container">
   <div *ngFor="let shop of shops">
-<div class="shop-item fav-shop-item m-2 d-flex flex-column justify-content-end"  [style.background-image]="logoUrl(shop._id)" [ngClass]="{'new-shop' : isNew(shop.createdAt), 'most-liked' : shop.likes.length >= 20 && !isNew(shop.createdAt)  }">
+<div class="shop-item fav-shop-item d-flex flex-column justify-content-end"  [style.background-image]="logoUrl(shop._id)" [ngClass]="{'new-shop' : isNew(shop.createdAt), 'most-liked' : shop.likes.length >= 20 && !isNew(shop.createdAt)  }">
   <div class="shop-info  w-100">
 <div class="d-flex flex-row justify-content-between pt-1" routerLink="/shops/id/{{shop._id}}">
     <p class="shop-name m-1">{{shop.shopName}}</p>

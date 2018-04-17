@@ -47,9 +47,6 @@ settings = {
     rol: {
       title: 'Actividad'
     },
-    activated: {
-      title: 'activado'
-    },
     applicationUrl: {
       title: 'Web'
     }
@@ -80,6 +77,9 @@ shopSettings = {
     },
     contactMail: {
       title: 'Correo de contacto'
+    },
+    _id : {
+      title: 'ID'
     }
   }
 };

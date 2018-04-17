@@ -68,6 +68,7 @@ export class ShopService {
     getActiveShopIds() {
         let params = {
             query: {
+                approved: true,
                 $sort: { 'createdAt': -1 },
                 $select: {
                     shopName: 1,

@@ -4,6 +4,7 @@ import { ConfirmMailComponent } from './components/confirm-mail/confirm-mail.com
 import { ContactComponent } from './components/contact/contact.component';
 import { LegalDisclaimerComponent } from './components/legal-disclaimer/legal-disclaimer.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { CookiesPolicyComponent } from './components/cookies-policy/cookies-policy.component'
 import { ConditionsComponent } from './components/conditions/conditions.component';
 import { TransparencyComponent } from './components/transparency/transparency.component';
 import { InfoSupplierComponent } from './components/info-supplier/info-supplier.component'
@@ -34,7 +35,7 @@ import { LoginComponent } from './login/login.component';
       { path: 'contacto', component: ContactComponent },
       { path: 'aviso-legal', component: LegalDisclaimerComponent },
       { path: 'politica-de-privacidad', component: PrivacyPolicyComponent },
-      { path: 'politica-de-cookies', component: PrivacyPolicyComponent },
+      { path: 'politica-de-cookies', component: CookiesPolicyComponent },
       { path: 'condiciones', component: ConditionsComponent },
       { path: 'transparencia-gdpr', component: TransparencyComponent },
       { path: 'info-supplier', component: InfoSupplierComponent },

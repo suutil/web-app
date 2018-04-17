@@ -16,6 +16,7 @@ import { ConfirmMailComponent } from './components/confirm-mail/confirm-mail.com
 import { ContactComponent } from './components/contact/contact.component'
 import { LegalDisclaimerComponent } from './components/legal-disclaimer/legal-disclaimer.component'
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component'
+import { CookiesPolicyComponent } from './components/cookies-policy/cookies-policy.component'
 import { ConditionsComponent } from './components/conditions/conditions.component'
 import { TransparencyComponent } from './components/transparency/transparency.component'
 import { InfoSupplierComponent } from './components/info-supplier/info-supplier.component'
@@ -40,6 +41,7 @@ import { SignupProviderModal } from './components/contact/signup-provider-modal.
     ContactComponent,
     LegalDisclaimerComponent,
     PrivacyPolicyComponent,
+    CookiesPolicyComponent,
     ConditionsComponent,
     TransparencyComponent,
     InfoSupplierComponent,

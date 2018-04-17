@@ -10,8 +10,7 @@
             <div class="row">
 
                 <div class="col-6 col-sm-3">
-                    <div *ngIf="!shop.logo" class="w-100 empty-logo d-flex flex-column align-items-center justify-content-center" style="min-height:200px">
-                        <img class="h-25 w-25" src="assets/icons/camera.png">
+                    <div *ngIf="!shop.logo" class="empty-logo d-flex flex-column align-items-center justify-content-center py-lg-5">
                         <h3>Logotipo</h3>
                     </div>
 
@@ -24,11 +23,11 @@
 
                 <div class="col-sm-5">
                     <div class="d-flex flex-column px-0 px-md-5">
-                        <p class="bold-label mt-3 mt-md-0">Logotipo *</p>
+                        <p class="bold-label mt-3 mt-md-0">Logo * (.png o .jpg) 250x250 px recomendado.</p>
                         <p>Imagen que te representa en el listado de proveedores y en tu Espacio de Proveedor.</p>
                         <upload-form [type]="'logo'" [maxHeight]="240" [maxWidth]="240" [isUploaded]="shop.logo || false" [id]="shop._id" [collection]="'shop'"></upload-form>
                         <p class="bold-label mt-3">Etiquetas *</p>
-                        <p>Elige las #etiquetas que mejor te describen. Aparecerán en tu Espacio de Proveedor, y las 3 primeras juntos a tu logo en el listado de proveedores. <span (click)="toggleTagModal()" class="blue">Sugerencias</span></p>
+                        <p>Elige las #etiquetas que mejor te describen. Aparecerán en tu Espacio de Proveedor. <span (click)="toggleTagModal()" class="blue">Sugerencias</span></p>
                         <div class="mb-1">
                             <input class="p-1 p-lg-2" placeholder="{{shopTagsPlaceholder}}" name="tags" required (click)="toggleTagModal()">
                         </div>
@@ -126,16 +125,16 @@
                             <h4 class="mt-3">IMÁGENES</h4>
 
                             <div class="row">
-                                <label for="banner" class="mt-2 mb-2 pl-3">Imagen 1 (.png o .jpg) de 490x230px</label>
+                                <label for="banner" class="mt-2 mb-2 pl-3">Imagen 1 (.png o .jpg) 980x460 px recomendado.</label>
                                 <upload-form [type]="'banner'" [maxHeight]="240" [maxWidth]="600" [image]="" class="col-sm-8" [isUploaded]="shop.banner" [userId]="user._id" [id]="shop._id" [collection]="'shop'"></upload-form>
                             </div>
 
                             <div class="row">
-                                <label for="picture1" class="mt-2 mb-2 pl-3">Imagen 2 (.png o .jpg) de 240x240px</label>
+                                <label for="picture1" class="mt-2 mb-2 pl-3">Imagen 2 (.png o .jpg) 480x480 px recomendado.</label>
                                 <upload-form [type]="'picture1'" [maxHeight]="300" [maxWidth]="300" [image]="" class="col-sm-8" [isUploaded]="shop.picture1" [userId]="user._id" [id]="shop._id" [collection]="'shop'"></upload-form>
                             </div>
                             <div class="row">
-                                <label for="banner" class="mt-2 mb-2 pl-3">Imagen 3 (.png o .jpg) de 240x240px</label>
+                                <label for="banner" class="mt-2 mb-2 pl-3">Imagen 3 (.png o .jpg) 480x480 px recomendado.</label>
                                 <upload-form [type]="'picture2'" [maxHeight]="300" [maxWidth]="300" [image]="" class="col-sm-8" [isUploaded]="shop.picture2" [userId]="user._id" [id]="shop._id" [collection]="'shop'"></upload-form>
                             </div>
 
